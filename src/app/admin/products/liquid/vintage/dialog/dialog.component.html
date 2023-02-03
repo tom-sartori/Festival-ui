@@ -1,0 +1,36 @@
+<div class="header bg-primary">
+	<div fxLayout="row wrap" fxLayoutAlign="space-between center">
+		<h2 class="fw-500 secondary-font">{{( 'PRODUCT.VINTAGE.' +  ((vintage) ? 'UPDATE' : 'ADD') ) | translate }}</h2>
+		<app-dialog-header-controls [dialogRef]="dialogRef"></app-dialog-header-controls>
+	</div>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" class="pt-3">
+	<div mat-dialog-content>
+		<div fxLayout="row wrap">
+
+			<!-- Value column. -->
+			<div fxFlex="100">
+				<mat-form-field appearance="outline" class="w-100">
+					<mat-label>{{ "FIELD.LABEL.VINTAGE" | translate }}</mat-label>
+					<input matInput placeholder='{{ "FIELD.PLACEHOLDER.VINTAGE" | translate }}' formControlName="value" type='number' step='1' min='1900' max='2050' required>
+					<mat-error *ngIf="form.controls.value.errors?.required">{{ "FIELD.REQUIRED.VINTAGE" | translate }}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<!-- Description column. -->
+			<div fxFlex="100">
+				<mat-form-field appearance="outline" class="w-100">
+					<mat-label>{{ "FIELD.LABEL.DESCRIPTION" | translate }}</mat-label>
+					<textarea matInput placeholder='{{ "FIELD.PLACEHOLDER.DESCRIPTION" | translate }}' formControlName="description" rows="6" required></textarea>
+					<mat-error *ngIf="form.controls.description.errors?.required">{{ "FIELD.REQUIRED.DESCRIPTION" | translate }}</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+	</div>
+	<div mat-dialog-actions>
+		<div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+			<button mat-raised-button color="warn" type="button" mat-dialog-close>{{ 'BTN.CANCEL' | translate }}</button>
+			<button mat-raised-button color="primary" type="submit">{{ 'BTN.SAVE' | translate }}</button>
+		</div>
+	</div>
+</form>

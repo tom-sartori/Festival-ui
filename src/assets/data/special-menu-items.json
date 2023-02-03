@@ -1,0 +1,97 @@
+[
+    {
+        "id": 1,
+        "name": "Pack découverte classique",
+        "description": "La Capitelle (blanc), Les Cresses (rouge) et Les Mages (rosé).",
+        "price": 40,
+        "image": {
+            "small": "assets/images/products/1/small.jpg",
+            "medium": "assets/images/products/1/medium.jpg",
+            "big": "assets/images/products/1/big.jpg"
+        },
+        "discount": 0,
+        "ratingsCount": 4,
+        "ratingsValue": 350,
+        "availibilityCount": 5,
+        "cartCount": 0,
+        "weight": 160,
+        "isVegetarian": false,
+        "categoryId": 4
+    },
+    {
+        "id": 2,
+        "name": "Pack découverte des vins rouges",
+        "description": "Les Cresses, Les Hauts de Tabaussac et Le Clos Grellet.",
+        "price": 80,
+        "image": {
+            "small": "assets/images/products/2/small.jpg",
+            "medium": "assets/images/products/2/medium.jpg",
+            "big": "assets/images/products/2/big.jpg"
+        },
+        "discount": 10,
+        "ratingsCount": 4,
+        "ratingsValue": 320,
+        "availibilityCount": 7,
+        "cartCount": 0,
+        "weight": 180,
+        "isVegetarian": false,
+        "categoryId": 1
+    },
+    {
+        "id": 3,
+        "name": "La Capitelle",
+        "description": "Description La Capitelle. ",
+        "price": 20,
+        "image": {
+            "small": "assets/images/products/3/small.jpg",
+            "medium": "assets/images/products/3/medium.jpg",
+            "big": "assets/images/products/3/big.jpg"
+        },
+        "discount": 0,
+        "ratingsCount": 4,
+        "ratingsValue": 370,
+        "availibilityCount": 5,
+        "cartCount": 0,
+        "weight": 125,
+        "isVegetarian": false,
+        "categoryId": 3
+    },
+    {
+        "id": 4,
+        "name": "Les Hauts de Tabaussac",
+        "description": "Description Tabaussac. ",
+        "price": 20,
+        "image": {
+            "small": "assets/images/products/4/small.jpg",
+            "medium": "assets/images/products/4/medium.jpg",
+            "big": "assets/images/products/4/big.jpg"
+        },
+        "discount": 0,
+        "ratingsCount": 4,
+        "ratingsValue": 380,
+        "availibilityCount": 7,
+        "cartCount": 0,
+        "weight": 110,
+        "isVegetarian": false,
+        "categoryId": 1
+    },
+    {
+        "id": 5,
+        "name": "Clos Grellet",
+        "description": "Description Grellet. ",
+        "price": 50,
+        "image": {
+            "small": "assets/images/products/5/small.jpg",
+            "medium": "assets/images/products/5/medium.jpg",
+            "big": "assets/images/products/5/big.jpg"
+        },
+        "discount": 0,
+        "ratingsCount": 5,
+        "ratingsValue": 480,
+        "availibilityCount": 7,
+        "cartCount": 0,
+        "weight": 110,
+        "isVegetarian": false,
+        "categoryId": 1
+    }
+]

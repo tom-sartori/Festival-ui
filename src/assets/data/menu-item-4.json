@@ -1,0 +1,19 @@
+{
+    "id": 4,
+    "name": "Les Hauts de Tabaussac",
+    "description": "Description Tabaussac. ",
+    "price": 20,
+    "image": {
+        "small": "assets/images/products/4/small.jpg",
+        "medium": "assets/images/products/4/medium.jpg",
+        "big": "assets/images/products/4/big.jpg"
+    },
+    "discount": 0,
+    "ratingsCount": 4,
+    "ratingsValue": 380,
+    "availibilityCount": 7,
+    "cartCount": 0,
+    "weight": 110,
+    "isVegetarian": false,
+    "categoryId": 1
+}

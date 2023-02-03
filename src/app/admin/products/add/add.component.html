@@ -1,0 +1,177 @@
+<div class="p-2">
+	<mat-card>
+		<mat-card-content>
+			<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" fxLayout="row wrap">
+				<div fxFlex="100" class="px-2">
+					<div fxLayout="row wrap">
+
+						<!-- Field name. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-90">
+								<mat-label>{{ "FIELD.LABEL.NAME" | translate }}</mat-label>
+								<mat-select formControlName="name" [compareWith]='equals' required>
+									<mat-option *ngFor='let name of appService.Data.names' [value]="name">
+										{{ name.name }}
+									</mat-option>
+								</mat-select>
+								<mat-error *ngIf="form.controls.name.errors?.required">{{ "FIELD.REQUIRED.NAME" | translate }}</mat-error>
+							</mat-form-field>
+
+							<button class="w-10" mat-icon-button color="primary" type='button' (click)="addName()" matTooltip='{{ "BTN.ADD" | translate }}'>
+								<mat-icon>add</mat-icon>
+							</button>
+						</div>
+
+						<!-- Field category. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-90">
+								<mat-label>{{ "FIELD.LABEL.CATEGORY" | translate }}</mat-label>
+								<mat-select formControlName="category" [compareWith]='equals' required>
+									<mat-option *ngFor='let category of appService.Data.categories' [value]="category">
+										{{ category.name }}
+									</mat-option>
+								</mat-select>
+								<mat-error *ngIf="form.controls.category.errors?.required">{{ "FIELD.REQUIRED.CATEGORY" | translate }}</mat-error>
+							</mat-form-field>
+
+							<button class="w-10" mat-icon-button color="primary" type='button' (click)="addCategory()" matTooltip='{{ "BTN.ADD" | translate }}'>
+								<mat-icon>add</mat-icon>
+							</button>
+						</div>
+
+						<!-- Field price. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-100">
+								<mat-label>{{ "FIELD.LABEL.PRICE" | translate }}</mat-label>
+								<input placeholder='{{ "FIELD.PLACEHOLDER.PRICE" | translate }}' matInput formControlName="price" type='number' min='0' required>
+								<mat-error *ngIf="form.controls.price.errors?.required">{{ "FIELD.REQUIRED.PRICE" | translate }}</mat-error>
+							</mat-form-field>
+						</div>
+
+						<!-- Field image. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-100">
+								<mat-label>{{ "FIELD.LABEL.IMAGE" | translate }}</mat-label>
+								<input placeholder='{{ "FIELD.PLACEHOLDER.IMAGE" | translate }}' matInput formControlName="image" type='text' minlength='1' required>
+								<mat-error *ngIf="form.controls.image.errors?.required">{{ "FIELD.REQUIRED.IMAGE" | translate }}</mat-error>
+							</mat-form-field>
+						</div>
+
+						<!-- Field technical sheet. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-100">
+								<mat-label>{{ "FIELD.LABEL.TECHNICAL_SHEET" | translate }}</mat-label>
+								<input placeholder='{{ "FIELD.PLACEHOLDER.TECHNICAL_SHEET" | translate }}' matInput formControlName="technicalSheet" type='text' minlength='1' required>
+								<mat-error *ngIf="form.controls.technicalSheet.errors?.required">{{ "FIELD.REQUIRED.TECHNICAL_SHEET" | translate }}</mat-error>
+							</mat-form-field>
+						</div>
+
+						<!-- Field type. -->
+						<div fxFlex="100">
+							<mat-form-field appearance="outline" class="w-100">
+								<mat-label>{{ "FIELD.LABEL.TYPE" | translate }}</mat-label>
+								<mat-select formControlName="type" required (selectionChange)='handlerOnchangeType($event)'>
+									<mat-option *ngFor='let type of productTypes' [value]="type">
+										{{ type }}
+									</mat-option>
+								</mat-select>
+								<mat-error *ngIf="form.controls.type.errors?.required">{{ "FIELD.REQUIRED.TYPE" | translate }}</mat-error>
+							</mat-form-field>
+						</div>
+
+
+						<!-- Container fields. -->
+						<div *ngIf='this.currentProductType === "Wine" || this.currentProductType === "Oil"' fxFlex="100">
+
+							<div class="w-100">
+								<h2 class="secondary-font primary-color mb-3">{{ "FIELD.LABEL.CONTAINER" | translate }}</h2>
+							</div>
+
+							<!-- Field container - capacity. -->
+							<div fxFlex="100">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>{{ "FIELD.LABEL.CONTAINER_CAPACITY" | translate }}</mat-label>
+									<input placeholder='{{ "FIELD.PLACEHOLDER.CONTAINER_CAPACITY" | translate }}' matInput formControlName="capacity" type='number' min='0' step='0.25' required>
+									<mat-error *ngIf="form.controls.capacity.errors?.required">{{ "FIELD.REQUIRED.CONTAINER_CAPACITY" | translate }}</mat-error>
+								</mat-form-field>
+							</div>
+
+							<!-- Field container - unit. -->
+							<div fxFlex="100">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>{{ "FIELD.LABEL.UNIT" | translate }}</mat-label>
+									<mat-select formControlName="unit" required>
+										<mat-option *ngFor='let unit of units' [value]="unit">
+											{{ unit }}
+										</mat-option>
+									</mat-select>
+									<mat-error *ngIf="form.controls.unit.errors?.required">{{ "FIELD.REQUIRED.UNIT" | translate }}</mat-error>
+								</mat-form-field>
+							</div>
+
+							<!-- Field container - keyType. -->
+							<div fxFlex="100">
+								<mat-form-field appearance="outline" class="w-100">
+									<mat-label>{{ "FIELD.LABEL.CONTAINER_TYPE" | translate }}</mat-label>
+									<mat-select formControlName="keyType" required>
+										<mat-option *ngFor='let keyType of keyTypes' [value]="keyType">
+											{{ keyType }}
+										</mat-option>
+									</mat-select>
+									<mat-error *ngIf="form.controls.keyType.errors?.required">{{ "FIELD.REQUIRED.CONTAINER_TYPE" | translate }}</mat-error>
+								</mat-form-field>
+							</div>
+						</div>
+
+
+						<!-- Wine fields. -->
+						<div *ngIf='this.currentProductType === "Wine"' fxFlex="100">
+							<!-- Field cuvee. -->
+							<div fxFlex="100">
+								<mat-form-field appearance="outline" class="w-90">
+									<mat-label>{{ "FIELD.LABEL.CUVEE" | translate }}</mat-label>
+									<mat-select formControlName="cuvee" [compareWith]='equals' required>
+										<mat-option *ngFor='let cuvee of appService.Data.cuvees' [value]="cuvee">
+											{{ cuvee.name.name }} - {{ cuvee.vintage.value }}
+										</mat-option>
+									</mat-select>
+									<mat-error *ngIf="form.controls.cuvee.errors?.required">{{ "FIELD.REQUIRED.CUVEE" | translate }}</mat-error>
+								</mat-form-field>
+
+								<button class="w-10" mat-icon-button color="primary" type='button' (click)="addCuvee()" matTooltip='{{ "BTN.ADD" | translate }}'>
+									<mat-icon>add</mat-icon>
+								</button>
+							</div>
+						</div>
+
+
+						<!-- Oil fields. -->
+						<div *ngIf='this.currentProductType === "Oil"' fxFlex="100">
+							<!-- Field appellation. -->
+							<div fxFlex="100">
+								<mat-form-field appearance="outline" class="w-90">
+									<mat-label>{{ "FIELD.LABEL.APPELLATION" | translate }}</mat-label>
+									<mat-select formControlName="appellation" [compareWith]='equals' required>
+										<mat-option *ngFor='let appellation of appService.Data.appellations' [value]="appellation">
+											{{ appellation.name }}
+										</mat-option>
+									</mat-select>
+									<mat-error *ngIf="form.controls.appellation.errors?.required">{{ "FIELD.REQUIRED.APPELLATION" | translate }}</mat-error>
+								</mat-form-field>
+
+								<button class="w-10" mat-icon-button color="primary" type='button' (click)="addAppellation()" matTooltip='{{ "BTN.ADD" | translate }}'>
+									<mat-icon>add</mat-icon>
+								</button>
+							</div>
+						</div>
+
+						<div fxFlex="100" class="mt-2 text-center w-100">
+							<button mat-raised-button color="primary" type="submit" class="uppercase mx-1" [disabled]='currentProductType.length < 1' >{{ (isAdding ? "BTN.ADD" : "BTN.UPDATE") | translate }} </button>
+							<button mat-raised-button color="warn" type="button" class="uppercase" (click)='handlerCancel()' >{{ "BTN.CANCEL" | translate }}</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</mat-card-content>
+	</mat-card>
+</div>

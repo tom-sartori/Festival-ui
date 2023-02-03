@@ -1,0 +1,232 @@
+{
+  "LOGOUT": "Se déconnecter",
+  "NAV": {
+    "PAGES": "Des pages",
+    "CHEFS": "Cuisinier",
+    "CHEF": "Chef",
+    "404_PAGE": "404 Page",
+    "ADMIN": "Admin"
+  },
+  "ADMIN_NAV": {
+    "DASHBOARD": "Tableau de bord",
+    "MENU_ITEMS": "Éléments du menu",
+    "CATEGORIES": "Catégories",
+    "MENU_ITEMS_LIST": "Liste de menu",
+    "MENU_ITEM_DETAIL": "Détail de menu",
+    "ADD_MENU_ITEM": "Ajouter un menu",
+    "ANALYTICS": "Analytique"
+  },
+  "HOME": {
+    "NAV": "Accueil",
+    "TITLE": "Festival de jeux",
+    "DESC": "Un super festival"
+  },
+  "PRODUCT": {
+    "TITLE": "Nos produits",
+    "DESC": "Description de nos produits. ",
+    "ADD": "Ajouter un produit",
+    "UPDATE": "Modifier le produit",
+    "NO_DATA": "Aucun produit disponible",
+    "CATEGORY": {
+      "ADD": "Ajouter une catégorie",
+      "UPDATE": "Modifier la catégorie",
+      "NO_DATA": "Vous n'avez aucune catégorie. ",
+      "ALL": "Toutes les catégories"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "DESC": "Le caveau est ouvert tous les jours sur réservation, par mail ou par telephone. ",
+    "CONTACT_US": "Contactez-nous !"
+  },
+  "LOGIN": {
+    "TITLE": "S'identifier",
+    "DESC": "Pas encore de compte ? Créez-le tout de suite !",
+    "KEEP_SIGNED_IN": "Rester connecté"
+  },
+  "REGISTER": {
+    "TITLE": "S'inscrire",
+    "DESC": "Vous avez déjà un compte ? Connectez-vous !",
+    "RECEIVE_NEWSLETTER": "Recevoir la newsletter",
+    "CONDITIONS_MESSAGE": "En cliquant sur \"Créer un compte\", vous acceptez nos"
+  },
+  "ACCOUNT": {
+    "TITLE": "Mon compte",
+    "PROFILE": {
+      "TITLE": "Mon profil"
+    },
+    "PASSWORD_CHANGE": {
+      "TITLE": "Changement de mot de passe"
+    },
+    "ADDRESS": {
+      "TITLE": "Mes adresses"
+    }
+  },
+  "NOT_FOUND": {
+    "MESSAGE": "Opps, il semble que cette page n’existe pas. "
+  },
+  "ADMIN": {
+  },
+  "BTN": {
+    "ADD": "Ajouter",
+    "SAVE": "Sauvegarder",
+    "SUBMIT": "Soumettre",
+    "CANCEL": "Annuler",
+    "UPLOAD": "Télécharger",
+    "REMOVE": "Retirer",
+    "YES": "Oui",
+    "NO": "Non",
+    "OK": "D'accord",
+    "SUBSCRIBE": "S'inscrire",
+    "SIGN_IN": "Créer mon compte",
+    "RESET_PASSWORD": "Mot de passe oublié ?",
+    "CREATE_ACCOUNT": "Créer un compte",
+    "HIDE": "Cacher",
+    "READ_MORE": "En savoir plus",
+    "ADD_ADDRESS": "Ajouter une adresse",
+    "DELETE_ADDRESS": "Supprimer cette adresse",
+    "CHANGE_PASSWORD": "Modifier le mot de passe",
+    "VIEW": "Voir",
+    "UPDATE_PROFILE": "Mettre à jour mon profil",
+    "EDIT": "Modifier",
+    "CLOSE": "Fermer",
+    "UPDATE": "Mettre à jour"
+  },
+  "FIELD": {
+    "LABEL": {
+      "NAME": "Nom",
+      "FIRST_NAME": "Prénom",
+      "MIDDLE_NAME": "Deuxième prénom",
+      "LAST_NAME": "Nom de famille",
+      "COMPANY": "Entreprise",
+      "COUNTRY": "Pays",
+      "CITY": "Ville",
+      "PLACE": "Région",
+      "POSTAL_CODE": "Code postal",
+      "ADDRESS": "Adresse",
+      "STATE": "Région",
+      "PHONE": "Téléphone",
+      "EMAIL": "E-mail",
+      "MESSAGE": "Message",
+      "DATE": "Date",
+      "TIME": "Horaire",
+      "GUEST": "Participants",
+      "USERNAME": "Nom d'utilisateur",
+      "PASSWORD": "Mot de passe",
+      "CURRENT_PASSWORD": "Mot de passe actuel",
+      "NEW_PASSWORD": "Nouveau mot de passe",
+      "CONFIRM_PASSWORD": "Confirmation du mot de passe",
+      "IMAGE": "Image",
+      "QUANTITY": "Quantité",
+      "SEARCH": "Rechercher",
+      "ACTION": "Action",
+      "DESCRIPTION": "Description",
+      "CATEGORY": "Catégorie"
+    },
+    "PLACEHOLDER": {
+      "NAME": "Votre nom",
+      "FIRST_NAME": "Votre prénom",
+      "LAST_NAME": "Votre nom de famille",
+      "COMPANY": "Commandez-vous pour une enrtreprise ?",
+      "COUNTRY": "Indiquez un pays",
+      "CITY": "Votre ville",
+      "POSTAL_CODE": "Votre code postal",
+      "ADDRESS": "Votre adresse postale (numéro, rue, appartement...",
+      "STATE": "Votre région",
+      "PHONE": "Votre numéro de téléphone",
+      "EMAIL": "Votre adresse mail",
+      "MESSAGE": "Votre message",
+      "DATE": "Choisissez une date",
+      "USERNAME": "Votre nom d'utilisateur",
+      "PASSWORD": "Votre mot de passe",
+      "CURRENT_PASSWORD": "Votre mot de passe actuel",
+      "NEW_PASSWORD": "Votre nouveau mot de passe",
+      "CONFIRM_PASSWORD": "Confirmez votre mot de passe",
+      "HOUR": "Indiquez une heure",
+      "MINUTE": "Indiquez des minutes",
+      "EVENT_CAPACITY": "Indiquez la capacité de l'événement",
+      "DESCRIPTION": "Indiquez une description",
+      "IMAGE": "Choisissez une image"
+    },
+    "INVALID": {
+      "FIRST_NAME": "Nombre maximum de mots atteint. ",
+      "LAST_NAME": "Nombre maximum de mots atteint. ",
+      "EMAIL": "Adresse email invalide. ",
+      "USERNAME": "Ce nom d'utilisateur n'est pas assez long. Il doit faire 6 caractères au minimum. ",
+      "PASSWORD": "Mot de passe incorrect. Il doit faire 6 caractères au minimum. ",
+      "CURRENT_PASSWORD": "Mot de passe incorrect. ",
+      "NEW_PASSWORD": "Mot de passe incorrect. Il doit faire 6 caractères au minimum. ",
+      "CONFIRM_PASSWORD": "Les mots de passe ne correspondent pas. "
+    },
+    "REQUIRED": {
+      "NAME": "Un nom est requis. ",
+      "FIRST_NAME": "Un prénom est requis. ",
+      "LAST_NAME": "Un nom de famille est requis. ",
+      "COUNTRY": "Un pays est requis. ",
+      "CITY": "Une ville est requise. ",
+      "POSTAL_CODE": "Un code postal est requis. ",
+      "PHONE": "Un numéro de téléphone est requis. ",
+      "EMAIL": "Un email est requis. ",
+      "MESSAGE": "Un message est requis. ",
+      "DATE": "Une date est requise. ",
+      "TIME": "Une horaire est requise. ",
+      "USERNAME": "Un nom d'utilisateur est requis. ",
+      "PASSWORD": "Un mot de passe est requis. ",
+      "CURRENT_PASSWORD": "Vous devez saisir votre mot de passe actuel. ",
+      "NEW_PASSWORD": "Vous devez saisir un nouveau mot de passe. ",
+      "CONFIRM_PASSWORD": "La confirmation du mot de passe est requise. ",
+      "MINIMUM_SPEND": "Ce montant est requis. ",
+      "HOUR": "Une heure est requise. ",
+      "MINUTE": "Des minutes sont requises. ",
+      "EVENT_CAPACITY": "Une capacité est requise. ",
+      "ADDRESS": "Une adresse est requise. ",
+      "DESCRIPTION": "Une description est requise. ",
+      "CATEGORY": "Une catégorie est requise. ",
+      "IMAGE": "Une image est requise. "
+    }
+  },
+  "SNACKBAR": {
+    "CATEGORY": {
+      "CREATED": "La catégorie a été créée avec succès. ",
+      "UPDATED": "La catégorie a été mise à jour avec succès. ",
+      "DELETED": "La catégorie a été supprimée avec succès. ",
+      "ERROR": "Une erreur est survenue lors de la création de la catégorie. "
+    }
+  },
+  "FOOTER": {
+    "NEWSLETTER": {
+      "TITLE": "S'inscrire à notre newsletter",
+      "DESC": "Recevez nos dernières actualités directement dans votre boîte mail. "
+    }
+  },
+  "PAGINATION":{
+    "ITEMS_PER_PAGE": "Objets par page:",
+    "NEXT_PAGE": "Page suivante",
+    "PREV_PAGE": "Page précédente",
+    "FIRST_PAGE": "Première page",
+    "LAST_PAGE": "Dernière page",
+    "SHOW": "Voir"
+  },
+  "SORTING": {
+    "DEFAULT": "Tri par défaut",
+    "POPULAR": "Tri par popularité",
+    "PRICE_LTH": "Tri par prix croissant",
+    "PRICE_HTL": "Tri par prix décroissant"
+  },
+  "DATE": {
+    "MONTH": {
+      "JANUARY": "Janvier",
+      "FEBRUARY": "Février",
+      "MARCH": "Mars",
+      "APRIL": "Avril",
+      "MAY": "Mai",
+      "JUNE": "Juin",
+      "JULY": "Juillet",
+      "AUGUST": "Août",
+      "SEPTEMBER": "Septembre",
+      "OCTOBER": "Octobre",
+      "NOVEMBER": "Novembre",
+      "DECEMBER": "Décembre"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<form [formGroup]="infoForm" (ngSubmit)="onInfoFormSubmit()" autocomplete="off" fxLayout="row wrap">
+    <div fxFlex="100">
+        <h2 class="secondary-font text-center mb-3">{{ "ACCOUNT.PROFILE.TITLE" | translate }}</h2>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="40" class="px-3 mb-3">
+        <app-image-upload
+            [base64]="infoForm.controls.image.value"
+            [fileSize]="400"
+            [acceptTypes]="'image/png, image/jpeg, image/jpg'"
+            (onFileChange)="fileChange($event)">
+        </app-image-upload>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="60" class="px-3" ngClass.sm="mt-2" ngClass.xs="mt-2">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{ "FIELD.LABEL.NAME" | translate }}</mat-label>
+            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.NAME" | translate }}' formControlName="name" required>
+            <mat-error *ngIf="infoForm.controls.name.errors?.required">{{ "FIELD.REQUIRED.NAME" | translate }}</mat-error>
+            <mat-error *ngIf="infoForm.controls.name.hasError('minlength')">{{ "FIELD.INVALID.NAME" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{ "FIELD.LABEL.EMAIL" | translate }}</mat-label>
+            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.EMAIL" | translate }}' formControlName="email" required>
+            <mat-error *ngIf="infoForm.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
+            <mat-error *ngIf="infoForm.controls.email.hasError('invalidEmail')">{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{ "FIELD.LABEL.PHONE" | translate }}</mat-label>
+            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.PHONE" | translate }}' formControlName="phone" required onlyNumber>
+            <mat-error *ngIf="infoForm.controls.phone.errors?.required">{{ "FIELD.REQUIRED.PHONE" | translate }}</mat-error>
+        </mat-form-field>
+    </div>
+    <div fxFlex="100" class="text-center mt-2">
+        <button mat-raised-button color="primary" type="submit" class="uppercase">{{ "BTN.UPDATE_PROFILE" | translate }}</button>
+    </div>
+</form>

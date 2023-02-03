@@ -1,0 +1,19 @@
+{
+    "id": 1,
+    "name": "Pack découverte classique",
+    "description": "La Capitelle (blanc), Les Cresses (rouge) et Les Mages (rosé).",
+    "price": 40,
+    "image": {
+        "small": "assets/images/products/1/small.jpg",
+        "medium": "assets/images/products/1/medium.jpg",
+        "big": "assets/images/products/1/big.jpg"
+    },
+    "discount": 0,
+    "ratingsCount": 4,
+    "ratingsValue": 350,
+    "availibilityCount": 5,
+    "cartCount": 0,
+    "weight": 160,
+    "isVegetarian": false,
+    "categoryId": 4
+}

@@ -1,0 +1,104 @@
+<app-header-image
+    [backgroundImage]="'assets/images/about/background.jpeg'"
+    [bgImageAnimate]="true"
+    [contentOffsetToTop]="true"
+    [title]='"ABOUT_US.TITLE" | translate'
+    [desc]='"ABOUT_US.DESC" | translate'>
+</app-header-image>
+
+<div class="px-3">
+    <div class="theme-container">
+        <mat-card class="main-content-header">
+            <div class="section pt-1 px-3">
+                <video muted controls width='100%'>
+                    <source src="assets/images/others/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <h1 class="section-title">{{ "ABOUT_US.HISTORY.TITLE" | translate }}</h1>
+                <p>{{ "ABOUT_US.HISTORY.TEXT1" | translate }}</p>
+                <p>{{ "ABOUT_US.HISTORY.TEXT2" | translate }}</p>
+
+                <div fxLayout="row wrap">
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="py-3">
+                        <img src="assets/images/about/1.jpeg" alt="about-1" class="mw-100">
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="py-3" [ngClass.gt-sm]="(settings.rtl) ? 'pr-5' : 'pl-5'">
+                        <h1 class="secondary-font primary-color text-center">{{ "ABOUT_US.WINE.TITLE" | translate }}</h1>
+                        <p>{{ "ABOUT_US.WINE.TEXT1" | translate }}</p>
+                        <p>{{ "ABOUT_US.WINE.TEXT2" | translate }}</p>
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" class="mt-3">
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="py-3" [ngClass.gt-sm]="(settings.rtl) ? 'pl-5' : 'pr-5'">
+                        <h1 class="secondary-font primary-color text-center">{{ "ABOUT_US.OIL.TITLE" | translate }}</h1>
+                        <p>{{ "ABOUT_US.OIL.TEXT" | translate }}</p>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="py-3">
+                        <img src="assets/images/about/2.jpg" alt="about-2" class="mw-100">
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" class="flex-wrapper mt-3">
+                    <div fxFlex="100" class="px-3">
+                        <h2 class="secondary-font primary-color">Our Working Hours</h2>
+                        <p>Praesent sit amet ex vel lectus cursus vehicula vitae nec purus. Pellentesque eu augue tempor, mattis ante id, ullamcorper neque. Suspendisse scelerisque vestibulum dapibus. Proin condimentum, enim non luctus feugiat, est libero volutpat mauris, ut tristique nunc magna tincidunt erat. Suspendisse pretium posuere odio non mollis. Suspendisse vel sem sed mi aliquet iaculis. Mauris mi justo, aliquam at justo et, finibus consectetur enim. Ut laoreet aliquet consectetur. Proin suscipit massa ultrices lacinia mattis. Vestibulum at scelerisque arcu, et dignissim diam. Proin congue lobortis orci, ac viverra purus tempus ut.</p>
+                    </div>
+                    <div *ngFor="let item of workingHours" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-sm="50" class="p-3">
+                        <mat-chip-list>
+                            <mat-chip color="primary" selected>{{item.day}}</mat-chip>
+                            <mat-chip><mat-icon class="mr-1 text-muted">schedule</mat-icon>{{item.hours}}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" class="flex-wrapper mt-5">
+                    <div fxFlex="100" class="px-3">
+                        <h2 class="secondary-font primary-color">Accommodation Details</h2>
+                        <p>Aenean eu ex vitae orci posuere luctus. Phasellus dui tortor, sagittis molestie mi at, malesuada porttitor dui. Praesent scelerisque, turpis ac venenatis faucibus, turpis urna hendrerit tortor, non lobortis orci velit id justo. Phasellus nec enim purus. Sed ultricies dapibus nisi, ac iaculis diam viverra ut.</p>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="20" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-3">
+                        <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                            <div fxFlex="50" fxLayoutAlign="center center"><h3 class="secondary-font p-2 text-center">2 Person Seating</h3></div>
+                            <div fxFlex="50" fxLayoutAlign="center center" class="bg-primary py-4"><h1>48</h1></div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="20" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-3">
+                        <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                            <div fxFlex="50" fxLayoutAlign="center center"><h3 class="secondary-font p-2 text-center">4 Person Seating</h3></div>
+                            <div fxFlex="50" fxLayoutAlign="center center" class="bg-primary py-4"><h1>36</h1></div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="20" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-3">
+                        <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                            <div fxFlex="50" fxLayoutAlign="center center"><h3 class="secondary-font p-2 text-center">6 Person Seating</h3></div>
+                            <div fxFlex="50" fxLayoutAlign="center center" class="bg-primary py-4"><h1>24</h1></div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="20" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-3">
+                        <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                            <div fxFlex="50" fxLayoutAlign="center center"><h3 class="secondary-font p-2 text-center">Family Seating <small>(max 20)</small></h3></div>
+                            <div fxFlex="50" fxLayoutAlign="center center" class="bg-primary py-4"><h1>15</h1></div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="20" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-3">
+                        <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                            <div fxFlex="50" fxLayoutAlign="center center"><h3 class="secondary-font p-2 text-center">Business Meet</h3></div>
+                            <div fxFlex="50" fxLayoutAlign="center center" class="bg-primary py-4"><h1>7</h1></div>
+                        </mat-card>
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" class="flex-wrapper mt-3">
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="p-3">
+                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper lobortis quam, id imperdiet mi feugiat quis. Cras a odio posuere, rhoncus quam vitae, commodo neque. Nunc mollis velit vulputate, volutpat diam vitae, egestas turpis. In posuere tempor lorem, sit amet pulvinar nunc accumsan a. Quisque sem tellus, congue at eleifend sit amet, consectetur sit amet est. Integer sodales quam quis elit commodo consequat. Aenean posuere augue a justo gravida elementum laoreet tincidunt enim. Nullam sagittis mauris id dui scelerisque, eget dignissim est hendrerit. Praesent fringilla commodo egestas. Suspendisse bibendum purus vitae mi mattis laoreet.</p>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="50" class="p-3">
+                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper lobortis quam, id imperdiet mi feugiat quis. Cras a odio posuere, rhoncus quam vitae, commodo neque. Nunc mollis velit vulputate, volutpat diam vitae, egestas turpis. In posuere tempor lorem, sit amet pulvinar nunc accumsan a. Quisque sem tellus, congue at eleifend sit amet, consectetur sit amet est. Integer sodales quam quis elit commodo consequat. Aenean posuere augue a justo gravida elementum laoreet tincidunt enim. Nullam sagittis mauris id dui scelerisque, eget dignissim est hendrerit. Praesent fringilla commodo egestas. Suspendisse bibendum purus vitae mi mattis laoreet.</p>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

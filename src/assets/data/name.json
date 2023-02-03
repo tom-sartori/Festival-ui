@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "La Capitelle",
+    "keyColor": "WHITE",
+  },
+  {
+    "id": 2,
+    "name": "Les Mages",
+    "keyColor": "ROSE"
+  },
+  {
+    "id": 3,
+    "name": "Les Cresses",
+    "keyColor": "RED"
+  },
+  {
+    "id": 4,
+    "name": "Lescargol",
+    "keyColor": "RED"
+  },
+  {
+    "id": 5,
+    "name": "Les Hauts de Tabaussac",
+    "keyColor": "RED"
+  },
+  {
+    "id": 6,
+    "name": "Clos Grellet",
+    "keyColor": "RED"
+  }
+]

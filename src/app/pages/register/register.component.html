@@ -1,0 +1,90 @@
+<div class="px-3 py-5">
+    <div class="theme-container">
+        <mat-card class="p-0 o-hidden">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-sm="50" class="p-0 bg-cover" [style.background-image]="bgImage">
+                </div>
+                <div fxFlex="100" fxFlex.gt-sm="50" class="py-3" ngClass.gt-sm="px-5" ngClass.sm="px-3" ngClass.xs="px-3">
+                    <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
+                        <h1 class="secondary-font">{{ "REGISTER.TITLE" | translate }}</h1>
+                        <a mat-button routerLink="/login" color="accent" class="w-100">{{ "REGISTER.DESC" | translate }}</a>
+                    </div>
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
+
+<!--                        <mat-form-field  appearance="outline" class="w-100 mt-2">-->
+<!--                            <mat-icon matPrefix class="mr-1 text-muted">person</mat-icon>-->
+<!--                            <mat-label>{{ "FIELD.LABEL.USERNAME" | translate }}</mat-label>-->
+<!--                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.USERNAME" | translate }}' formControlName="username" required>-->
+<!--                            <mat-error *ngIf="registerForm.controls.username.errors?.required">{{ "FIELD.REQUIRED.USERNAME" | translate }}</mat-error>-->
+<!--                            <mat-error *ngIf="registerForm.controls.username.hasError('minlength')">{{ "FIELD.INVALID.USERNAME" | translate }}</mat-error>-->
+<!--                        </mat-form-field>-->
+
+                        <mat-form-field  appearance="outline" class="w-100 mt-1">
+                            <mat-icon matPrefix class="mr-1 text-muted">account_circle</mat-icon>
+                            <mat-label>{{ "FIELD.LABEL.FIRST_NAME" | translate }}</mat-label>
+                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.FIRST_NAME" | translate }}' formControlName="firstName" required autocomplete='on'>
+                            <mat-error *ngIf="registerForm.controls.firstName.errors?.required">{{ "FIELD.REQUIRED.FIRST_NAME" | translate }}</mat-error>
+<!--                            <mat-error *ngIf="registerForm.controls.firstName.hasError('invalidFirstName')">{{ "FIELD.INVALID.FIRST_NAME" | translate }}</mat-error>-->
+                        </mat-form-field>
+
+                        <mat-form-field  appearance="outline" class="w-100 mt-1">
+                            <mat-icon matPrefix class="mr-1 text-muted">account_circle</mat-icon>
+                            <mat-label>{{ "FIELD.LABEL.LAST_NAME" | translate }}</mat-label>
+                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.LAST_NAME" | translate }}' formControlName="lastName" required autocomplete='on'>
+                            <mat-error *ngIf="registerForm.controls.lastName.errors?.required">{{ "FIELD.REQUIRED.LAST_NAME" | translate }}</mat-error>
+<!--                            <mat-error *ngIf="registerForm.controls.lastName.hasError('invalidLastName')">{{ "FIELD.INVALID.LAST_NAME" | translate }}</mat-error>-->
+                        </mat-form-field>
+
+                        <mat-form-field  appearance="outline" class="w-100 mt-1">
+                            <mat-icon matPrefix class="mr-1 text-muted">email</mat-icon>
+                            <mat-label>{{ "FIELD.LABEL.EMAIL" | translate }}</mat-label>
+                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.EMAIL" | translate }}' formControlName="email" required autocomplete='on'>
+                            <mat-error *ngIf="registerForm.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
+                            <mat-error *ngIf="registerForm.controls.email.hasError('invalidEmail')">{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field  appearance="outline" class="w-100 mt-1">
+                            <mat-icon matPrefix class="mr-1 text-muted">lock</mat-icon>
+                            <mat-label>{{ "FIELD.LABEL.PASSWORD" | translate }}</mat-label>
+                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.PASSWORD" | translate }}' formControlName="password" type="password" minlength="6" required [type]="hide ? 'password' : 'text'" autocomplete='on'>
+                            <mat-error *ngIf="registerForm.controls.password.errors?.required">{{ "FIELD.REQUIRED.PASSWORD" | translate }}</mat-error>
+                            <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">{{ "FIELD.INVALID.PASSWORD" | translate }}</mat-error>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" type="button" class="text-muted">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <mat-form-field  appearance="outline" class="w-100 mt-1">
+                            <mat-icon matPrefix class="mr-1 text-muted">lock</mat-icon>
+                            <mat-label>{{ "FIELD.LABEL.CONFIRM_PASSWORD" | translate }}</mat-label>
+                            <input matInput placeholder='{{ "FIELD.PLACEHOLDER.CONFIRM_PASSWORD" | translate }}' formControlName="confirmPassword" type="password" required [type]="hide ? 'password' : 'text'" autocomplete='on'>
+                            <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">{{ "FIELD.REQUIRED.CONFIRM_PASSWORD" | translate }}</mat-error>
+                            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">{{ "FIELD.INVALID.CONFIRM_PASSWORD" | translate }}</mat-error>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" type="button" class="text-muted">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <mat-slide-toggle formControlName="receiveNewsletter" class="my-2">{{ "REGISTER.RECEIVE_NEWSLETTER" | translate }}</mat-slide-toggle>
+
+                        <div class="text-center mt-2">
+                            <button mat-raised-button color="accent" class="uppercase" type="submit">
+                                {{ "BTN.CREATE_ACCOUNT" | translate }}
+                            </button>
+                        </div>
+
+                    </form>
+                    <div class="divider mt-4"></div>
+                    <mat-card-actions fxLayoutAlign="center center" class="text-center">
+                        <small class="my-3">
+                            {{ "REGISTER.CONDITIONS_MESSAGE" | translate }}
+                            <a mat-button routerLink="/terms-conditions" color="primary" class="mx-2">
+                                {{ "TERMS_CONDITIONS.TITLE" | translate }}
+                            </a>
+                        </small>
+                    </mat-card-actions>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

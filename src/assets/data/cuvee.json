@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nameId": 1,
+    "vintage": 2019,
+    "appellationId": 1,
+    "variety": ["ALICANTE", "GRENACHE", "SYRAH"],
+    "alcohol": 12.5,
+    "characteristic": {
+      "elaboration": 1,
+      "eye": 1,
+      "nose": 1,
+      "mouth": 1,
+      "agreement": 1,
+      "temperature": 1,
+      "keeping": 1,
+      "allergen": []
+    }
+  }
+]

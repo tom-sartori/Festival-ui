@@ -1,0 +1,64 @@
+<app-header-image
+    *ngIf="settings.header == 'image'"
+    [backgroundImage]="'assets/images/home/background.png'"
+    [bgImageAnimate]="true"
+    [contentOffsetToTop]="true"
+    [title]='"HOME.TITLE" | translate'
+    [desc]='"HOME.DESC" | translate'
+    [isHomePage]="false"
+    [fullscreen]="true">
+</app-header-image>
+
+<div class="section mt-3">
+    <div class="px-3">
+        <div class="theme-container">
+            <mat-card class="p-0 o-hidden" fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50">
+                    <img src="assets/images/others/about-us.jpg" alt="about" class="mw-100 d-block">
+                </div>
+                <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="50" class="py-3 px-4">
+                    <h1 class="secondary-font primary-color mb-2">{{ "HOME.ABOUT.TITLE" | translate }}</h1>
+                    <p>{{ "HOME.ABOUT.TEXT1" | translate }}</p>
+                    <p>{{ "HOME.ABOUT.TEXT2" | translate }}</p>
+                    <p>{{ "HOME.ABOUT.TEXT3" | translate }}</p>
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="pt-3">
+                        <img src="assets/images/others/signature.png" alt="signature">
+                        <a mat-raised-button routerLink="/about" color="primary" class="uppercase">{{ "BTN.READ_MORE" | translate }}</a>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div class="section default mt-3">
+    <div class="px-3">
+        <div class="theme-container">
+            <h1 class="section-title">Special menu</h1>
+            <p class="section-desc text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <app-product-item-carousel [productList]='specialProductList'></app-product-item-carousel>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">View all menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section default mt-3">
+    <div class="px-3">
+        <div class="theme-container">
+            <h1 class="section-title">Our best dishes</h1>
+            <p class="section-desc text-muted">The best dishes of the city for our clients.</p>
+            <app-product-item-carousel [productList]="bestProductList"></app-product-item-carousel>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <a mat-raised-button routerLink="/menu" color="primary" class="uppercase">View all menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-our-services></app-our-services>
+<app-our-chefs></app-our-chefs>
+<app-timeline></app-timeline>
+
+<app-our-awards></app-our-awards>

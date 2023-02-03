@@ -1,0 +1,7 @@
+<span *ngIf="dividers" class="v-divider" fxShow="false" fxShow.gt-xs></span>
+<span fxLayoutAlign="center center" class="item" fxShow="false" fxShow.gt-xs>
+  <a class="px-1" href='http://maps.google.com/?q={{ contactService.data.address }}' target="_blank">
+	  <mat-icon [color]="iconColor" [ngClass]="'mat-icon-' + iconSize">location_on</mat-icon>
+      {{ contactService.data.address }}
+  </a>
+</span>
