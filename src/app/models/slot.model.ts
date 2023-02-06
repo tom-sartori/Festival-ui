@@ -1,9 +1,9 @@
 export class Slot {
-    startDate: Date;
-    endDate : Date;
+    startDate: string;
+    endDate : string;
     volunteerRef: string[];
 
-    constructor(startDate: Date, endDate: Date, volunteerRef: string[]) {
+    constructor(startDate: string, endDate: string, volunteerRef: string[]) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.volunteerRef = volunteerRef;

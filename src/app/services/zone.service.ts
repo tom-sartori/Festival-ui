@@ -11,7 +11,7 @@ export class ZoneService {
   private dataPath: string = '/zone';
   constructor(private appService: AppService) { }
 
-  public createGame(zone: Zone): Observable<Zone> {
+  public createZone(zone: Zone): Observable<Zone> {
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -29,7 +29,7 @@ export class ZoneService {
   }
 
   public getById(id: string): Observable<Zone> {
-    return this.appService.http.get<Zone>(this.appService.apiUrl + this.dataPath+ '/' +{id});
+    return this.appService.http.get<Zone>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
   }
 
   ///TODO : Liste des bénévoles / créneau pour une zone donnée

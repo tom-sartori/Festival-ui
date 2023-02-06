@@ -31,7 +31,7 @@ export class VolunteerService {
   }
 
   public getById(id: string): Observable<Volunteer> {
-    return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/' +{id});
+    return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
   }
 
   public update(volunteer: Volunteer): Observable<Volunteer> {
