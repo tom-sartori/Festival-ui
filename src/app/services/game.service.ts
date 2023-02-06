@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {AppService} from "./app.service";
-import {Volunteer} from "../models/volunteer.model";
 import {Game} from "../models/game.model";
 
 @Injectable({
@@ -11,7 +10,7 @@ export class GameService {
 
   private dataPath: string = '/game';
 
-  constructor( private appService: AppService) { }
+  constructor(private appService: AppService) { }
 
   public createGame(game: Game): Observable<Game> {
     const headers = {
@@ -21,7 +20,7 @@ export class GameService {
 
     return this.appService.http.post<Game>(
         this.appService.apiUrl + this.dataPath,
-        Game,
+        game,
         { headers }
     );
   }
