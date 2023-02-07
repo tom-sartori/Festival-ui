@@ -1,0 +1,19 @@
+<ng-container>
+    <button mat-icon-button (click)="changeViewType('list', 100)">
+        <mat-icon>view_list</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="changeViewType('grid', 50)">
+        <svg class="mat-icon mat-icon-sm" viewBox="0 0 25 25">
+            <path d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3" />
+        </svg>
+    </button>
+
+    <button mat-icon-button (click)="changeViewType('grid', 33.3)" fxShow="false" fxShow.gt-sm>
+        <mat-icon>view_module</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="changeViewType('grid', 25)" fxShow="false" fxShow.gt-md>
+        <mat-icon>view_comfy</mat-icon>
+    </button>
+</ng-container>
