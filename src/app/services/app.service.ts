@@ -49,7 +49,7 @@ export class AppService {
 	public Data = new Data([], [], [], 0, 0, [], [], [], [], [], []);
 
 	public url = environment.url + '/assets/data/';
-	public apiUrl = environment.url + '/assets/data';
+	public apiUrl = "http://localhost:8080";
 
 	constructor(
 		public http: HttpClient,
