@@ -16,6 +16,7 @@ const routes: Routes = [
             { path: 'account', loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule) },
             { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
             { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
+            { path:'volunteer', loadChildren: () => import('./pages/volunteers/volunteers.module').then(m => m.VolunteersModule)}
         ]
     },
     { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },

@@ -17,6 +17,7 @@ export const routes = [
       { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule), data: { breadcrumb: 'Products' } },
       { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule), data: { breadcrumb: 'Users' } },
       { path: 'analytics', loadChildren: () => import('./analytics/analytics.module').then(m => m.AnalyticsModule), data: { breadcrumb: 'Analytics' } },
+      { path: 'volunteer', loadChildren: () => import('./volunteers/volunteers.module').then(m => m.VolunteersModule)}
     ]
   }
 ];

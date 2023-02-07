@@ -1,0 +1,53 @@
+<mat-card class="m-2 p-0">
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="w-100 p-2">
+        <div></div>
+        <button mat-raised-button color="primary" (click)="handlerAdd()">
+            <mat-icon>add</mat-icon>
+            {{ 'PRODUCT.ADD' | translate }}
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="table-wrapper">
+        <mat-table [dataSource]="dataSource" matSort class="w-100">
+
+            <!-- firstname Column -->
+            <ng-container matColumnDef="firstName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>firstName</mat-header-cell>
+                <mat-cell *matCellDef="let volunteer">{{ volunteer.firstName }}</mat-cell>
+            </ng-container>
+
+            <!-- lastname Column -->
+            <ng-container matColumnDef="lastName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>lastName</mat-header-cell>
+                <mat-cell *matCellDef="let volunteer">{{ volunteer.lastName }}</mat-cell>
+            </ng-container>
+
+            <!-- email Column -->
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>email</mat-header-cell>
+                <mat-cell *matCellDef="let volunteer">{{ volunteer.email }}</mat-cell>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>{{ "FIELD.LABEL.ACTION" | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let volunteer">
+
+                    <!-- Button used to update with the dialog component. -->
+                    <button mat-icon-button color="primary" (click)="handlerUpdate(volunteer.id)" matTooltip='{{ "BTN.EDIT" | translate }}'>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="warn" (click)="handlerDelete(volunteer.id)" matTooltip='{{ "BTN.REMOVE" | translate }}'>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let volunteer; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+
+</mat-card>
