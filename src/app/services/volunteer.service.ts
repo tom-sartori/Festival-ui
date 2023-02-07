@@ -26,16 +26,16 @@ export class VolunteerService {
     );
   }
 
-  public get(): Observable<Volunteer> {
-    return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath);
+  public get(): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath);
   }
 
   public getById(id: string): Observable<Volunteer> {
     return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
   }
 
-  public getByZone(idZone: string): Observable<Volunteer> {
-    return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +idZone);
+  public getByZone(idZone: string): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +idZone);
   }
 
   public update(volunteer: Volunteer): Observable<Volunteer> {
@@ -51,8 +51,8 @@ export class VolunteerService {
     );
   }
 
-  public deleteVolunteer(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
+  public deleteVolunteer(id: string): void {
+    this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
 
 }
