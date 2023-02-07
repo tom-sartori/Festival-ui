@@ -21,6 +21,15 @@
     "TITLE": "Festival de jeux",
     "DESC": "Un super festival"
   },
+  "GAME": {
+    "NAV": "Nos jeux"
+  },
+  "ZONE": {
+    "NAV": "Zones"
+  },
+  "VOLUNTEER": {
+    "NAV": "Nos bénévoles"
+  },
   "PRODUCT": {
     "TITLE": "Nos produits",
     "DESC": "Description de nos produits. ",
