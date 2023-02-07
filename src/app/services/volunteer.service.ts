@@ -34,6 +34,10 @@ export class VolunteerService {
     return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
   }
 
+  public getByZone(idZone: string): Observable<Volunteer> {
+    return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +idZone);
+  }
+
   public update(volunteer: Volunteer): Observable<Volunteer> {
     const headers = {
       'Content-Type': 'application/json',
@@ -48,7 +52,7 @@ export class VolunteerService {
   }
 
   public deleteVolunteer(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +{id});
+    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
 
 }

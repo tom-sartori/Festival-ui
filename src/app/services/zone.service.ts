@@ -76,6 +76,6 @@ export class ZoneService {
   }
 
   public deleteGame(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +{id});
+    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
 }

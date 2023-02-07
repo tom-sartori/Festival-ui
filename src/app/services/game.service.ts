@@ -57,7 +57,7 @@ export class GameService {
    * @return An observable that emits the retrieved game.
    */
   public getByName(name : string): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/' +{name});
+    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/name/' +name);
   }
 
   /**
@@ -67,7 +67,7 @@ export class GameService {
    * @return An observable that emits the retrieved games.
    */
   public getByType(type : string): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/' +{type});
+    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/type/' +type);
   }
 
   /**
@@ -78,7 +78,7 @@ export class GameService {
    */
 
   public getByZone(zone : string): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/' +{zone});
+    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +zone);
   }
 
   /**
@@ -107,6 +107,6 @@ export class GameService {
    @return An observable that emits an empty response when the operation is successful.
    */
   public deleteGame(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +{id});
+    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
 }
