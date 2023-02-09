@@ -1,0 +1,31 @@
+<mat-card class="menu-item p-0" [fxLayout]="(viewType == 'grid') ? 'column' : 'row'" [ngClass]="[viewType + '-item', 'column-'+column]">
+
+<!--    <div fxFlex="100" [fxShrink]="(viewType == 'grid') ? '3' : '2'" class="thumbnail-section">-->
+<!--        <div *ngIf="lazyLoad">-->
+<!--            <img [attr.data-src]="game.image" class="w-100 d-block swiper-lazy">-->
+<!--            <div class="swiper-lazy-preloader"></div>-->
+<!--        </div>-->
+<!--        <img *ngIf="!lazyLoad" [src]="game.image" class="w-100 d-block">-->
+<!--    </div>-->
+
+    <div fxFlex="100" class="p-3">
+        <div fxLayout="column" fxLayoutAlign="start stretch" class="h-100">
+
+            <mat-card-content class="mb-0">
+                <h1 class="title">
+                    {{ game.name }}
+                </h1>
+                <div class="mt-2">
+                    <p>{{ game.type }}</p>
+
+                    <div *ngIf="viewType == 'list'" fxShow="false" fxShow.gt-sm="true">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magnam illum, suscipit nostrum ea quidem. Architecto quisquam eligendi tempora, obcaecati delectus, odio natus suscipit vel est temporibus error officia esse!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magnam illum, suscipit nostrum ea quidem. Architecto quisquam eligendi tempora, obcaecati delectus, odio natus suscipit vel est temporibus error officia esse!</p>
+                    </div>
+                </div>
+            </mat-card-content>
+
+            <div class="sticky-footer-helper" fxFlex="grow"></div>
+        </div>
+    </div>
+</mat-card>
