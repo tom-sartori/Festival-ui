@@ -56,6 +56,13 @@ import {ProductItemComponent} from './product-item/product-item.component';
 import {ProductItemToolbarComponent} from './product-item-toolbar/product-item-toolbar.component';
 import {ProductItemCarouselComponent} from './product-item-carousel/product-item-carousel.component';
 import {ProductItemHoverableComponent} from './product-item-hoverable/product-item-hoverable.component';
+import {GameItemToolbarComponent} from './game-item-toolbar/game-item-toolbar.component';
+import {SearchBarComponent} from './toolbar/search-bar/search-bar.component';
+import {ViewTypeComponent} from './toolbar/view-type/view-type.component';
+import {GameItemComponent} from "./game-item/game-item.component";
+import {CategoryToggleComponent} from './toolbar/category-toggle/category-toggle.component';
+import {PaginationSelectComponent} from './toolbar/pagination-select/pagination-select.component';
+import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: false,
@@ -63,22 +70,29 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 @NgModule({
-  declarations: [
-    HeaderImageComponent,
-    OurServicesComponent,
-    OurAwardsComponent,
-    OurChefsComponent,
-    TimelineComponent,
-    DialogHeaderControlsComponent,
-    ImageUploadComponent,
-    ConfirmDialogComponent,
-    AlertDialogComponent,
-    LangComponent,
-    ProductItemComponent,
-    ProductItemToolbarComponent,
-    ProductItemCarouselComponent,
-    ProductItemHoverableComponent,
-  ],
+	declarations: [
+		HeaderImageComponent,
+		OurServicesComponent,
+		OurAwardsComponent,
+		OurChefsComponent,
+		TimelineComponent,
+		DialogHeaderControlsComponent,
+		ImageUploadComponent,
+		ConfirmDialogComponent,
+		AlertDialogComponent,
+		LangComponent,
+		ProductItemComponent,
+		ProductItemToolbarComponent,
+		ProductItemCarouselComponent,
+		ProductItemHoverableComponent,
+		GameItemToolbarComponent,
+		SearchBarComponent,
+		ViewTypeComponent,
+		GameItemComponent,
+  CategoryToggleComponent,
+  PaginationSelectComponent,
+  LoadingSpinnerComponent,
+	],
   imports: [
     CommonModule,
     RouterModule,
@@ -180,6 +194,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		ProductItemComponent,
 		ProductItemToolbarComponent,
 		ProductItemCarouselComponent,
+		GameItemToolbarComponent,
+		GameItemComponent,
+		CategoryToggleComponent,
+		LoadingSpinnerComponent,
 	],
   providers:[
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }

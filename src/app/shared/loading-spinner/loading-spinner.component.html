@@ -1,0 +1,11 @@
+<div *ngIf="isLoading">
+
+    <mat-spinner *ngIf="!message"></mat-spinner>
+
+    <mat-chip-list *ngIf="message">
+        <mat-chip selected disableRipple="true" color="warn" class="uppercase ws-nowrap">
+            {{ message }}
+        </mat-chip>
+    </mat-chip-list>
+
+</div>

@@ -22,7 +22,10 @@
     "DESC": "Un super festival"
   },
   "GAME": {
-    "NAV": "Nos jeux"
+    "NAV": "Nos jeux",
+    "TITLE": "Nos jeux",
+    "DESC": "Voici la liste complète des jeux que vous pouvez retrouver à notre festival. ",
+    "NO_DATA": "Aucun jeu disponible"
   },
   "ZONE": {
     "NAV": "Zones"
@@ -202,6 +205,14 @@
       "ERROR": "Une erreur est survenue lors de la création de la catégorie. "
     }
   },
+  "TOOLBAR": {
+    "SEARCH_BAR": {
+        "PLACEHOLDER": "Rechercher..."
+    },
+    "CATEGORY_TOGGLE": {
+      "ALL": "Toutes les catégories"
+    }
+  },
   "FOOTER": {
     "NEWSLETTER": {
       "TITLE": "S'inscrire à notre newsletter",
@@ -209,7 +220,7 @@
     }
   },
   "PAGINATION":{
-    "ITEMS_PER_PAGE": "Objets par page:",
+    "ITEMS_PER_PAGE": "Objets par page :",
     "NEXT_PAGE": "Page suivante",
     "PREV_PAGE": "Page précédente",
     "FIRST_PAGE": "Première page",

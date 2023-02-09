@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {AppService} from "./app.service";
 import {Game} from "../models/game.model";
@@ -36,14 +36,14 @@ export class GameService {
    * Retrieve all the games from the backend.
    * @return An Observable emitting the list of games retrieved from the backend.
    */
-  public get(): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath);
+  public get(): Observable<Game[]> {
+    return this.appService.http.get<Game[]>(this.appService.apiUrl + this.dataPath);
   }
 
   /**
    *
    * Get a game by its id.
-   * @param id : The id of the game to retrieve.
+   * @param id the id of the game to retrieve.
    * @return An observable that emits the retrieved game.
    */
   public getById(id: string): Observable<Game> {
@@ -53,27 +53,27 @@ export class GameService {
   /**
    *
    * Get games by their name.
-   * @param name : The name of the game to retrieve.
+   * @param name the name of the game to retrieve.
    * @return An observable that emits the retrieved game.
    */
-  public getByName(name : string): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/name/' +name);
+  public getByName(name : string): Observable<Game[]> {
+    return this.appService.http.get<Game[]>(this.appService.apiUrl + this.dataPath+ '/name/' +name);
   }
 
   /**
    *
    * Get games by their type.
-   * @param type : The type of the games to retrieve.
+   * @param type the type of the games to retrieve.
    * @return An observable that emits the retrieved games.
    */
-  public getByType(type : string): Observable<Game> {
-    return this.appService.http.get<Game>(this.appService.apiUrl + this.dataPath+ '/type/' +type);
+  public getByType(type : string): Observable<Game[]> {
+    return this.appService.http.get<Game[]>(this.appService.apiUrl + this.dataPath+ '/type/' +type);
   }
 
   /**
    *
    * This method returns games by their zone.
-   * @param zone : The zone of the games to retrieve.
+   * @param zone the zone of the games to retrieve.
    * @return An observable that emits the retrieved games.
    */
 
@@ -84,7 +84,7 @@ export class GameService {
   /**
    *
    * Update an existing game.
-   @param game : The game to update.
+   @param game the game to update.
    @return An observable that emits the updated game.
    */
   public update(game: Game): Observable<Game> {
@@ -103,7 +103,7 @@ export class GameService {
   /**
    *
    * Delete a game by its id.
-   @param id : The id of the game to delete.
+   @param id the id of the game to delete.
    @return An observable that emits an empty response when the operation is successful.
    */
   public deleteGame(id: string): Observable<{}> {

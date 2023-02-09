@@ -1,0 +1,17 @@
+.search-bar{
+  input{
+    height: 28px;
+    border: none;
+    padding: 0;
+    border-radius: 15px;
+    outline: none;
+    color: #444;
+    width: 0;
+    overflow: hidden;
+    transition: 0.3s;
+    &.show{
+      padding: 0 8px;
+      width: 250px;
+    }
+  }
+}

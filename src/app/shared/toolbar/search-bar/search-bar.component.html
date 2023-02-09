@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxShow="false" fxShow.gt-xs class="search-bar" >
+
+    <input type="text" placeholder='{{ "TOOLBAR.SEARCH_BAR.PLACEHOLDER" | translate }}'
+            class="mat-elevation-z3" [class.show]="isSearchBarToggled"
+            [(ngModel)]="searchBarValue" (keyup)="search()" >
+
+    <button mat-icon-button (click)="toggleSearchBar()" type="button">
+        <mat-icon>search</mat-icon>
+    </button>
+</div>
