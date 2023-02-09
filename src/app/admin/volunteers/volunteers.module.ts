@@ -7,7 +7,10 @@ import {SharedModule} from "../../shared/shared.module";
 import { AddComponent } from './add/add.component';
 
 export const routes: Routes = [
-  { path: '', component: VolunteersComponent, pathMatch: 'full' }
+  { path: '', component: VolunteersComponent, pathMatch: 'full' },
+  { path: 'add', component: AddComponent, pathMatch: 'full' },
+  { path: 'update', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'update/:id', component: AddComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
