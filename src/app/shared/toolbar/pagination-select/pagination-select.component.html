@@ -1,0 +1,11 @@
+<a mat-button [matMenuTriggerFor]="countsMenu" #countsMenuTrigger="matMenuTrigger">
+    {{ "PAGINATION.SHOW" | translate }} {{ countPerPage }}
+    <mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
+</a>
+<mat-menu #countsMenu="matMenu" xPosition="before" overlapTrigger="true">
+                <span (mouseleave)="countsMenuTrigger.closeMenu()">
+                    <button mat-menu-item *ngFor="let count of countPerPageList" (click)="changePerPage(count)">
+                        <span>{{ count }}</span>
+                    </button>
+                </span>
+</mat-menu>
