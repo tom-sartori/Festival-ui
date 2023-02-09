@@ -34,7 +34,6 @@ export class ListComponent implements OnInit {
     this.getVolunteers();
 
     if(!this.volunteers.length) {
-      console.log("iiiiciciciciciciicicic")
       this.getVolunteers();
     }
     else {
@@ -44,7 +43,6 @@ export class ListComponent implements OnInit {
 
   public initDataSource() {
     this.dataSource = new MatTableDataSource(this.volunteers);
-    console.log("daaatttaaaaaa"+this.dataSource)
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.sortingDataAccessor = (data, sortHeaderId) => {
@@ -96,15 +94,14 @@ export class ListComponent implements OnInit {
       //console.table(volunteer);
       this.volunteers = volunteer;
       this.initDataSource();
-      console.table("volontaiiiiiiire"+this.volunteers)
     })
   }
   public handlerAdd() {
-    this.router.navigate(['/admin/products/add']).then();
+    this.router.navigate(['/admin/volunteer/add']).then();
   }
 
     public handlerUpdate(id: string) {
-      this.router.navigate(['/admin/products/update', id]).then();
+      this.router.navigate(['/admin/volunteer/update', id]).then();
     }
 
 }

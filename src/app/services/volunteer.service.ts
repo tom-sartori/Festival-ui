@@ -41,12 +41,13 @@ export class VolunteerService {
   }
 
   public update(volunteer: Volunteer): Observable<Volunteer> {
+    console.log(volunteer);
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
 
-    return this.appService.http.put<Volunteer>(
+    return this.appService.http.patch<Volunteer>(
         this.appService.apiUrl + this.dataPath + '/' + volunteer.id,
         volunteer,
         { headers }
