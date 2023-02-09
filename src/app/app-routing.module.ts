@@ -15,6 +15,7 @@ const routes: Routes = [
             { path: 'chefs', loadChildren: () => import('./pages/chefs/chefs.module').then(m => m.ChefsModule) },
             { path: 'account', loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule) },
             { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
+            { path: 'game', loadChildren: () => import('./pages/game/game.module').then(m => m.GameModule) },
             { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
         ]
     },
