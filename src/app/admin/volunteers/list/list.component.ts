@@ -58,7 +58,7 @@ export class ListComponent implements OnInit {
   }
 
   public handlerDelete(volunteerId: string) {
-    const message = this.appService.getTranslateValue('MESSAGE.SURE_DELETE');
+    const message = this.appService.getTranslateValue('Etes-vous sûr de vouloir supprimer ce bénévole ?');
     let dialogRef = this.appService.openConfirmDialog('', message!);
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult){
@@ -66,7 +66,7 @@ export class ListComponent implements OnInit {
         this.volunteerService.deleteVolunteer(volunteerId).subscribe({
           next: () => {
             // Deleted.
-            this.snackBar.open(this.appService.getTranslateValue("SNACKBAR.PRODUCT.DELETED")!, '×', {
+            this.snackBar.open(this.appService.getTranslateValue("Bénévole supprimé!")!, '×', {
               panelClass: 'success',
               verticalPosition: 'top',
               duration: 3000

@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
-import {Container, Liquid, Oil, Product, Wine} from "../../../app.models";
 import {AppService} from "../../../services/app.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ActivatedRoute, Router} from "@angular/router";
 import * as _ from "lodash";
-import {MatSelectChange} from "@angular/material/select";
-import {DialogComponent as NamesDialogComponent} from "../../products/shared/names/dialog/dialog.component";
-import {
-  DialogComponent as AppellationsDialogComponent
-} from "../../products/liquid/appellations/dialog/dialog.component";
-import {DialogComponent as CategoriesDialogComponent} from "../../products/shared/categories/dialog/dialog.component";
-import {DialogComponent as CuveesDialogComponent} from "../../products/liquid/cuvees/dialog/dialog.component";
 import {VolunteerService} from "../../../services/volunteer.service";
 import {Volunteer} from "../../../models/volunteer.model";
 
@@ -48,7 +40,6 @@ export class AddComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         // Is updating.
-        console.log("rrrrjrjrjirjirjrjirjroir")
         this.isAdding = false;
         this.volunteerService.getById(params['id']).subscribe({
           next: (volunteer) => {
@@ -57,7 +48,6 @@ export class AddComponent implements OnInit {
             this.patchForm(this.currentVolunteer);
           },
           error: (error) => {
-            console.log(error);
             this.snackBar.open(
                 this.appService.getTranslateValue("SNACKBAR.ERROR.ERROR")! + error.error,
                 '×', {
@@ -100,14 +90,13 @@ export class AddComponent implements OnInit {
         this.volunteerService.createVolunteer(volunteerToAdd).subscribe({
           next: () => {
             // Created.
-            this.snackBar.open(this.appService.getTranslateValue("SNACKBAR.PRODUCT." + "CREATED" )!, '×', {
+            this.snackBar.open(this.appService.getTranslateValue("Bénévole " + "crée !" )!, '×', {
               panelClass: 'success',
               verticalPosition: 'top',
               duration: 3000
             });
           },
           error: (error) => {
-            console.log(error);
             this.snackBar.open(this.appService.getTranslateValue("SNACKBAR.PRODUCT.ERROR")!, '×', {
               panelClass: 'error',
               verticalPosition: 'top',
@@ -122,14 +111,13 @@ export class AddComponent implements OnInit {
         .subscribe({
         next:() => {
           // Created.
-          this.snackBar.open(this.appService.getTranslateValue("SNACKBAR.PRODUCT." + "UPDATED")!, '×', {
+          this.snackBar.open(this.appService.getTranslateValue("Bénévole " + "modifié !")!, '×', {
             panelClass: 'success',
             verticalPosition: 'top',
             duration: 3000
           });
         },
           error: (error) => {
-            console.log(error);
             this.snackBar.open(this.appService.getTranslateValue("SNACKBAR.PRODUCT.ERROR")!, '×', {
               panelClass: 'error',
               verticalPosition: 'top',
@@ -143,43 +131,7 @@ export class AddComponent implements OnInit {
     this.form.reset();
     this.router.navigate(['/admin/volunteer']).then();
   }
-  /*
-  public onSubmit() {
-    console.log(this.form.valid)
-    if (this.form.valid) {
-      //this.setCurrentProduct();
 
-      (this.isAdding ?
-              this.volunteerService.createVolunteer(this.currentVolunteer!) :
-              this.volunteerService.update(this.currentVolunteer!)
-      ).subscribe();
-
-          this.volunteerService.get().subscribe(volunteer => {
-            // Update the list with the added object.
-            //this.appService.Data.products = products;
-            this.router.navigate(['/admin/volunteer']).then();
-          });
-        },
-        error: (error) => {
-          console.log(error);
-
-        }
-      });
-
-
-    }
-}
-*/
-/*
-  handlerOnchangeType(event: MatSelectChange) {
-    const formValueCopy = this.form.value;
-    this.currentProductType = event.value;
-
-    this.setForm();
-    this.patchForm(formValueCopy);
-  }
-*/
-  // Get the group of a particular product. Note that there is subclasses of Product.
   private setForm() {
     this.form = this.formBuilder.group(this.volunteerGroup());
   }
@@ -199,31 +151,9 @@ export class AddComponent implements OnInit {
   }
 
 
-
-
-
-  public addName() {
-    this.appService.openDialog(NamesDialogComponent, null, 'theme-dialog');
-  }
-
-  addAppellation() {
-    this.appService.openDialog(AppellationsDialogComponent, null, 'theme-dialog');
-  }
-
-  addCategory() {
-    this.appService.openDialog(CategoriesDialogComponent, null, 'theme-dialog');
-  }
-
-  addCuvee() {
-    this.appService.openDialog(CuveesDialogComponent, null, 'theme-dialog');
-  }
-
-
   public getVolunteers(){
     this.volunteerService.get().subscribe((volunteer: Volunteer[]) => {
-      //console.table(volunteer);
       this.volunteers = volunteer;
-      console.table("volontaiiiiiiire"+this.volunteers)
     })
   }
 }

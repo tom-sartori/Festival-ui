@@ -11,15 +11,18 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    CategoriesComponent,
-    ListComponent,
-    DialogComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ]
+    declarations: [
+        CategoriesComponent,
+        ListComponent,
+        DialogComponent
+    ],
+    exports: [
+        ListComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        SharedModule
+    ]
 })
 export class CategoriesModule { }
