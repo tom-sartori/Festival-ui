@@ -1,32 +1,39 @@
 <app-header-image [backgroundImage]="'assets/images/chefs/chefs.jpg'"
-                  [bgImageAnimate]="false"
-                  [contentOffsetToTop]="false"
+                  [bgImageAnimate]='false'
+                  [contentOffsetToTop]='false'
                   [title]="'Nos bénévoles'"
                   [desc]="'Voici la liste complète des bénévoles que vous pouvez retrouver à notre festival.'">
 </app-header-image>
 
-<div class="p-3">
-    <div class="theme-container">
-        <div fxLayout="row wrap" class="flex-wrapper">
-            <div *ngFor="let volunteer of volunteers" fxFlex="100" fxFlex.gt-sm="50" class="p-3">
-                <mat-card class="p-0" fxLayout="row wrap">
-                    <div fxFlex="40">
-                        <img [src]="'assets/images/volunteers/icon1.png'" class="d-block mw-100" >
-                        <!-- <img [src]="menuItem.image.medium" class="w-100 d-block">   -->
-                    </div>
-                    <div fxFlex="60" class="p-3">
-                        <div fxLayout="column" fxLayoutAlign="start stretch" class="h-100">
-                            <mat-card-content class="mb-0">
-                                <h2 class="fw-600">{{volunteer.firstName}} {{volunteer.lastName}}</h2>
-                                <div class="mt-2">
-                                    <p fxLayoutAlign="start center" class="mb-2"><mat-icon color="primary">email</mat-icon><span class="mx-2">{{volunteer.email}}</span></p>
-                                </div>
-                            </mat-card-content>
-                        </div>
-                    </div>
-                </mat-card>
+<div class='p-3'>
+	<div class='theme-container'>
+		<div fxLayout='row wrap' class='flex-wrapper'>
+			<div *ngFor='let volunteer of volunteers' fxFlex='100' fxFlex.gt-sm='50' class='p-3'>
+				<mat-card class='p-0' fxLayout='row wrap'>
+					<div fxFlex='40'>
+						<img alt='Profile picture' [src]="'assets/images/volunteers/icon1.png'" class='d-block mw-100'>
+						<!-- <img [src]="menuItem.image.medium" class="w-100 d-block">   -->
+					</div>
+					<div fxFlex='60' class='p-3'>
+						<div fxLayout='column' fxLayoutAlign='start stretch' class='h-100'>
+							<mat-card-content class='mb-0'>
+								<h2 class='fw-600'>{{ volunteer.firstName }} {{ volunteer.lastName }}</h2>
+								<div class='mt-2'>
+									<p fxLayoutAlign='start center' class='mb-2'>
+										<a [href]='"mailto:" + volunteer.email'>
+											<mat-icon color='primary'>email</mat-icon>
+										</a>
+										<a [href]='"mailto:" + volunteer.email'>
+											<span class='mx-2'>{{ volunteer.email }}</span>
+										</a>
+									</p>
+								</div>
+							</mat-card-content>
+						</div>
+					</div>
+				</mat-card>
 
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
