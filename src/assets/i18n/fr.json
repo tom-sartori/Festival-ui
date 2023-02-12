@@ -40,7 +40,8 @@
     "NAV": "Zones"
   },
   "VOLUNTEER": {
-    "NAV": "Nos bénévoles"
+    "NAV": "Nos bénévoles",
+    "ADD": "Ajouter un bénévole"
   },
   "PRODUCT": {
     "TITLE": "Nos produits",
