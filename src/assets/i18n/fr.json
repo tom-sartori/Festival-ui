@@ -25,7 +25,16 @@
     "NAV": "Nos jeux",
     "TITLE": "Nos jeux",
     "DESC": "Voici la liste complète des jeux que vous pouvez retrouver à notre festival. ",
-    "NO_DATA": "Aucun jeu disponible"
+    "NO_DATA": "Aucun jeu disponible",
+    "ADD": "Ajouter un jeu",
+    "UPDATE": "Modifier le jeu",
+    "CATEGORY": {
+      "CHILD": "Enfant",
+      "FAMILY": "Famille",
+      "AMBIANCE": "Ambiance",
+      "INITIATED": "Initié",
+      "EXPERT": "Expert"
+    }
   },
   "ZONE": {
     "NAV": "Zones"
@@ -198,6 +207,10 @@
     }
   },
   "SNACKBAR": {
+    "CREATED": "L'élément a été créé avec succès. ",
+    "UPDATED": "L'élément a été mis à jour avec succès. ",
+    "DELETED": "L'élément a été supprimé avec succès. ",
+    "ERROR": "Une erreur est survenue. ",
     "CATEGORY": {
       "CREATED": "La catégorie a été créée avec succès. ",
       "UPDATED": "La catégorie a été mise à jour avec succès. ",
@@ -205,9 +218,12 @@
       "ERROR": "Une erreur est survenue lors de la création de la catégorie. "
     }
   },
+  "MESSAGE": {
+    "SURE_DELETE": "Êtes-vous sûr de vouloir supprimer cet élément ?"
+  },
   "TOOLBAR": {
     "SEARCH_BAR": {
-        "PLACEHOLDER": "Rechercher..."
+      "PLACEHOLDER": "Rechercher..."
     },
     "CATEGORY_TOGGLE": {
       "ALL": "Toutes les catégories"

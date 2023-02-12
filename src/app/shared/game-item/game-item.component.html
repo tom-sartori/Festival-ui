@@ -16,7 +16,7 @@
                     {{ game.name }}
                 </h1>
                 <div class="mt-2">
-                    <p>{{ game.type }}</p>
+                    <p>{{ ("GAME.CATEGORY." + game.type) | translate }}</p>
 
                     <div *ngIf="viewType == 'list'" fxShow="false" fxShow.gt-sm="true">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis magnam illum, suscipit nostrum ea quidem. Architecto quisquam eligendi tempora, obcaecati delectus, odio natus suscipit vel est temporibus error officia esse!</p>

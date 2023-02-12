@@ -1,0 +1,54 @@
+<mat-card class="m-2 p-0">
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="w-100 p-2">
+        <div></div>
+        <button mat-raised-button color="primary" (click)="openDialog(null)">
+            <mat-icon>add</mat-icon>
+            {{ 'GAME.ADD' | translate }}
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="table-wrapper">
+        <mat-table [dataSource]="dataSource" matSort [matSortDisableClear]="true" class="w-100">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{ "FIELD.LABEL.NAME" | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let game"> {{ game.name }}</mat-cell>
+            </ng-container>
+
+            <!-- Category Column -->
+            <ng-container matColumnDef="type">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{ "FIELD.LABEL.CATEGORY" | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let game"> {{ ("GAME.CATEGORY." +  game.type.toUpperCase()) | translate }}</mat-cell>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>{{ "FIELD.LABEL.ACTION" | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let game">
+
+                    <!-- Button used to update with the dialog component. -->
+                    <button mat-icon-button color="primary" (click)="openDialog(game)" matTooltip="Edit">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="warn" (click)="delete(game.id)" matTooltip='{{ "BTN.REMOVE" | translate }}'>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let game; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!-- No data message -->
+        <p *ngIf="gameList && gameList.length === 0" class="py-5 mb-0 text-center">
+            {{ "GAME.NO_DATA" | translate }}
+        </p>
+
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</mat-card>

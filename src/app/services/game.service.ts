@@ -109,4 +109,8 @@ export class GameService {
   public deleteGame(id: string): Observable<{}> {
     return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
+
+  public getCategoryList(): string[] {
+    return ['CHILD', 'FAMILY', 'AMBIANCE', 'INITIATED', 'EXPERT'];
+  }
 }
