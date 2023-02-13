@@ -29,15 +29,6 @@
                                 <mat-error *ngIf="form.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
                                 <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
                             </mat-form-field>
-
-                            <!--
-                            <mat-form-field appearance="outline" class="w-90">
-                                <mat-label>{{ "VOLUNTEER.LIST.EMAIL" | translate }}</mat-label>
-                                <input matInput formControlName="email" type="email" name="email" ngModel email="true" >
-                                <mat-error *ngIf="form.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
-                                <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">aaaaaaaaaa{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
-                            </mat-form-field>
-                            -->
                         </div>
 
                         <div fxFlex="100" class="mt-2 text-center w-100">
