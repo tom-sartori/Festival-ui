@@ -28,7 +28,8 @@ export class ListComponent implements OnInit {
 		public gameService: GameService,
 		public snackBarService: SnackBarService,
 		public dialogService: DialogService
-	) {}
+	) {
+	}
 
 	ngOnInit(): void {
 		this.getGameList();
@@ -37,19 +38,14 @@ export class ListComponent implements OnInit {
 	public getGameList(): void {
 		this.gameService.get().subscribe({
 			next: (response: Game[]) => {
-				console.log('isLoading : ' + this.gameList && this.gameList.length == 0)
-				console.log(this.message);
-
-				setTimeout(() => {
-					this.gameList = response;
-					if (this.gameList.length > 0) {
-						this.message = null;
-						this.initDataSource();
-					}
-					else {
-						this.message = this.translateService.getTranslatedValue('GAME.NO_DATA');
-					}
-				}, 3000);
+				this.gameList = response;
+				if (this.gameList.length > 0) {
+					this.message = null;
+					this.initDataSource();
+				}
+				else {
+					this.message = this.translateService.getTranslatedValue('GAME.NO_DATA');
+				}
 			},
 			error: (error) => {
 				this.snackBarService.openError(error);
@@ -66,8 +62,8 @@ export class ListComponent implements OnInit {
 			sortHeaderId: string
 		): string => {
 			return typeof data[sortHeaderId] === 'string'
-				? data[sortHeaderId].toLocaleLowerCase()
-				: data[sortHeaderId];
+			       ? data[sortHeaderId].toLocaleLowerCase()
+			       : data[sortHeaderId];
 		};
 
 		this.dataSource.sort = this.sort;
