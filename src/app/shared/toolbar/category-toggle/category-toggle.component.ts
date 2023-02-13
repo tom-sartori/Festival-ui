@@ -1,23 +1,27 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Category } from '@models/shared/category.model';
 
 @Component({
-  selector: 'app-category-toggle[categoryList]',
-  templateUrl: './category-toggle.component.html',
-  styleUrls: ['./category-toggle.component.scss']
+	selector: 'app-category-toggle[categoryList]',
+	templateUrl: './category-toggle.component.html',
+	styleUrls: ['./category-toggle.component.scss']
 })
 export class CategoryToggleComponent implements OnInit {
-  @Input() categoryList!: string[]; // This is the list of categories. Elements should already be translated.
+	@Input() categoryList!: Category[];
 
-  @Output() onChangeCategory: EventEmitter<string | null> = new EventEmitter<string | null>();
+	@Output() onChangeCategory: EventEmitter<Category> = new EventEmitter<Category>();
 
-  public selectedCategory: string | null = null;
+	public selectedCategory: Category | null = null;
 
-  constructor() { }
+	constructor() {
+	}
 
-  ngOnInit(): void { }
+	ngOnInit(): void {
+		this.selectedCategory = this.categoryList[0];
+	}
 
-  public handlerOnChangeCategory(category: string | null){
-    this.selectedCategory = category;
-    this.onChangeCategory.emit(this.selectedCategory);
-  }
+	public handlerOnChangeCategory(category: Category) {
+		this.selectedCategory = category;
+		this.onChangeCategory.emit(this.selectedCategory);
+	}
 }

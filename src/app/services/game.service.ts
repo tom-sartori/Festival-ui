@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {AppService} from "./app.service";
-import {Game} from "../models/game.model";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppService } from './app.service';
+import { Game } from '@models/game.model';
+import { Category } from '@models/shared/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,6 @@ export class GameService {
    * @return An observable that emits the created game.
    */
   public createGame(game: Game): Observable<Game> {
-
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -93,7 +93,7 @@ export class GameService {
       'Accept': 'application/json'
     };
 
-    return this.appService.http.put<Game>(
+    return this.appService.http.patch<Game>(
         this.appService.apiUrl + this.dataPath + '/' + game.id,
         game,
         { headers }
@@ -110,7 +110,14 @@ export class GameService {
     return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
   }
 
-  public getCategoryList(): string[] {
-    return ['CHILD', 'FAMILY', 'AMBIANCE', 'INITIATED', 'EXPERT'];
+  public getCategoryList(): Category[] {
+    const i18nKey: string = 'GAME.CATEGORY.';
+    return [
+        new Category('CHILD', i18nKey + 'CHILD'),
+        new Category('FAMILY', i18nKey + 'FAMILY'),
+        new Category('AMBIANCE', i18nKey + 'AMBIANCE'),
+        new Category('INITIATED', i18nKey + 'INITIATED'),
+        new Category('EXPERT', i18nKey + 'EXPERT')
+    ];
   }
 }

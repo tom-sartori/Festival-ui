@@ -29,6 +29,7 @@
     "ADD": "Ajouter un jeu",
     "UPDATE": "Modifier le jeu",
     "CATEGORY": {
+      "ALL": "Tous les jeux",
       "CHILD": "Enfant",
       "FAMILY": "Famille",
       "AMBIANCE": "Ambiance",
@@ -40,7 +41,8 @@
     "NAV": "Zones"
   },
   "VOLUNTEER": {
-    "NAV": "Nos bénévoles"
+    "NAV": "Nos bénévoles",
+    "ADD": "Ajouter un bénévole"
   },
   "PRODUCT": {
     "TITLE": "Nos produits",

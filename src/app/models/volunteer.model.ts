@@ -2,9 +2,9 @@ export class Volunteer {
     id: string;
     firstName : string;
     lastName : string;
-    email : String;
+    email : string;
 
-    constructor(id : string, firstName : string, lastName : string, email : String) {
+    constructor(id : string, firstName : string, lastName : string, email : string) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

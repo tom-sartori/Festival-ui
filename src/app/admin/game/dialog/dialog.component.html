@@ -18,21 +18,12 @@
             </div>
 
             <!-- Type column. -->
-<!--            <div fxFlex="100">-->
-<!--                <mat-form-field appearance="outline" class="w-100">-->
-<!--                    <mat-label>{{ "FIELD.LABEL.CATEGORY" | translate }}</mat-label>-->
-<!--                    <textarea matInput placeholder='{{ "FIELD.PLACEHOLDER.CATEGORY" | translate }}' formControlName="type" rows="6" required></textarea>-->
-<!--                    <mat-error *ngIf="form.controls.type.errors?.required">{{ "FIELD.REQUIRED.CATEGORY" | translate }}</mat-error>-->
-<!--                </mat-form-field>-->
-<!--            </div>-->
-
-
             <div fxFlex="100">
                 <mat-form-field appearance="outline" class="w-90">
                     <mat-label>{{ "FIELD.LABEL.CATEGORY" | translate }}</mat-label>
                     <mat-select formControlName="type" [compareWith]='equals' required>
-                        <mat-option *ngFor='let category of categoryList' [value]="category">
-                            {{ ( "GAME.CATEGORY." + category.toUpperCase()) | translate }}
+                        <mat-option *ngFor='let category of categoryList' [value]="category.value">
+                            {{ category.i18nKey | translate }}
                         </mat-option>
                     </mat-select>
                     <mat-error *ngIf="form.controls.type.errors?.required">{{ "FIELD.REQUIRED.CATEGORY" | translate }}</mat-error>
@@ -44,7 +35,7 @@
     <div mat-dialog-actions>
         <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
             <button mat-raised-button color="warn" type="button" mat-dialog-close>{{ 'BTN.CANCEL' | translate }}</button>
-            <button mat-raised-button color="primary" type="submit">{{ 'BTN.SAVE' | translate }}</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]='form.invalid'>{{ 'BTN.SAVE' | translate }}</button>
         </div>
     </div>
 </form>

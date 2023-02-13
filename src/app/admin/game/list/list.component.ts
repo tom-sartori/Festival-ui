@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
 	@ViewChild(MatSort, { static: true }) sort!: MatSort;
 
 	public gameList: Game[] = [];
+	public message: string | null = null;
 
 	constructor(
 		public translateService: TranslateService,
@@ -36,8 +37,19 @@ export class ListComponent implements OnInit {
 	public getGameList(): void {
 		this.gameService.get().subscribe({
 			next: (response: Game[]) => {
-				this.gameList = response;
-				this.initDataSource();
+				console.log('isLoading : ' + this.gameList && this.gameList.length == 0)
+				console.log(this.message);
+
+				setTimeout(() => {
+					this.gameList = response;
+					if (this.gameList.length > 0) {
+						this.message = null;
+						this.initDataSource();
+					}
+					else {
+						this.message = this.translateService.getTranslatedValue('GAME.NO_DATA');
+					}
+				}, 3000);
 			},
 			error: (error) => {
 				this.snackBarService.openError(error);

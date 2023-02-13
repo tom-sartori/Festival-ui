@@ -45,9 +45,13 @@
         </mat-table>
 
         <!-- No data message -->
-        <p *ngIf="gameList && gameList.length === 0" class="py-5 mb-0 text-center">
-            {{ "GAME.NO_DATA" | translate }}
-        </p>
+        <div>
+            <app-loading-spinner
+                fxFlex="100" fxLayoutAlign="center center" [style.min-height.px]="200"
+                [isLoading]="gameList && gameList.length == 0"
+                [message]="message" >
+            </app-loading-spinner>
+        </div>
 
     </div>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>

@@ -5,7 +5,8 @@ import { Game } from '@models/game.model';
 import { GameService } from '@services/game.service';
 import { SnackBarService } from '@services/snack-bar.service';
 import { AppService } from '@services/app.service';
-import * as _ from 'lodash';
+import { isEqual } from 'lodash';
+import { Category } from '@models/shared/category.model';
 
 @Component({
 	selector: 'app-dialog',
@@ -14,7 +15,7 @@ import * as _ from 'lodash';
 })
 export class DialogComponent implements OnInit {
 	public form!: UntypedFormGroup;
-	public categoryList: string[] = this.gameService.getCategoryList();
+	public categoryList: Category[] = this.gameService.getCategoryList();
 
 	constructor(
 		public appService: AppService,
@@ -44,22 +45,23 @@ export class DialogComponent implements OnInit {
 			(this.game ?
 			 this.gameService.update(this.form.value) :  // Updating.
 			 this.gameService.createGame(this.form.value)    // Creating.
-			).subscribe({
-				next: () => {
-					// Created.
-					this.snackBarService.openSuccess(this.appService.getTranslateValue('SNACKBAR.' + (this.game ? 'UPDATED' : 'CREATED'))!);
-					this.dialogRef.close(this.form.value);
-				},
-				error: (error) => {
-					console.log(error);
-					this.snackBarService.openError(this.appService.getTranslateValue('SNACKBAR.ERROR')!);
-					this.dialogRef.close(this.form.value);
-				}
-			});
+			)
+				.subscribe({
+					next: () => {
+						// Created.
+						this.snackBarService.openSuccess(this.appService.getTranslateValue('SNACKBAR.' + (this.game ? 'UPDATED' : 'CREATED'))!);
+						this.dialogRef.close(this.form.value);
+					},
+					error: (error) => {
+						console.log(error);
+						this.snackBarService.openError(this.appService.getTranslateValue('SNACKBAR.ERROR')!);
+						this.dialogRef.close(this.form.value);
+					}
+				});
 		}
 	}
 
 	public equals(option: any, value: any): boolean {
-		return _.isEqual(option, value);
+		return isEqual(option, value);
 	}
 }
