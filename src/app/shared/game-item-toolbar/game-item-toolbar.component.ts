@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GameService } from '@services/game.service';
-import { TranslateService } from '@services/translate.service';
+import { Category } from '@models/shared/category.model';
 
 @Component({
 	selector: 'app-game-item-toolbar',
@@ -14,27 +14,20 @@ export class GameItemToolbarComponent implements OnInit {
 	@Output() onChangeViewType: EventEmitter<{ viewType: string; viewCol: number; }>
 		= new EventEmitter<{ viewType: string; viewCol: number }>();
 
-	public categoryList: string[] = [];
+	public categoryList: Category[] = [];
 
-	constructor(public gameService: GameService, public translateService: TranslateService) {
+	constructor(
+		public gameService: GameService
+	) {
 	}
 
 	ngOnInit(): void {
 		this.categoryList = this.gameService.getCategoryList();
-
-		this.categoryList.map((category, index) => {
-			this.translateService
-				.getSyncTranslatedValue('GAME.CATEGORY.' + category)
-				.subscribe((translated: string | null) => {
-					if (translated) {
-						this.categoryList[index] = translated;
-					}
-				});
-		});
+		this.categoryList.unshift(new Category(null, 'GAME.CATEGORY.ALL'));
 	}
 
-	public changeCategory(category: string | null) {
-		this.onChangeCategory.emit(category);
+	public changeCategory(category: Category) {
+		this.onChangeCategory.emit(category.value);
 	}
 
 	public search(value: string) {
