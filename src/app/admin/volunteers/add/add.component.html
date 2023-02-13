@@ -6,25 +6,42 @@
                     <div fxLayout="row wrap">
                         <div fxFlex="100">
                             <mat-form-field appearance="outline" class="w-90">
-                                <mat-label>Nom</mat-label>
-                                <input matInput formControlName="lastName">
+                                <mat-icon matPrefix class="mr-1 text-muted">account_circle</mat-icon>
+                                <mat-label>{{ "VOLUNTEER.LIST.LASTNAME" | translate }}</mat-label>
+                                <input matInput placeholder='{{ "FIELD.PLACEHOLDER.LAST_NAME" | translate }}' formControlName="lastName">
+                                <mat-error *ngIf="form.controls.lastName.errors?.required">{{ "FIELD.REQUIRED.LAST_NAME" | translate }}</mat-error>
                             </mat-form-field>
                         </div>
                         <div fxFlex="100">
                             <mat-form-field appearance="outline" class="w-90">
-                                <mat-label>Prénom</mat-label>
-                                <input matInput formControlName="firstName">
+                                <mat-icon matPrefix class="mr-1 text-muted">account_circle</mat-icon>
+                                <mat-label>{{ "VOLUNTEER.LIST.FIRSTNAME" | translate }}</mat-label>
+                                <input matInput placeholder='{{ "FIELD.PLACEHOLDER.FIRST_NAME" | translate }}' formControlName="firstName">
+                                <mat-error *ngIf="form.controls.firstName.errors?.required">{{ "FIELD.REQUIRED.FIRST_NAME" | translate }}</mat-error>
                             </mat-form-field>
                         </div>
                         <div fxFlex="100">
+
                             <mat-form-field appearance="outline" class="w-90">
-                                <mat-label>Adresse mail</mat-label>
-                                <input matInput formControlName="email">
+                                <mat-icon matPrefix class="mr-1 text-muted">person</mat-icon>
+                                <mat-label>{{ "FIELD.LABEL.EMAIL" | translate }}</mat-label>
+                                <input matInput placeholder='{{ "FIELD.PLACEHOLDER.EMAIL" | translate }}' formControlName="email" required autocomplete='on'>
+                                <mat-error *ngIf="form.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
+                                <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
                             </mat-form-field>
+
+                            <!--
+                            <mat-form-field appearance="outline" class="w-90">
+                                <mat-label>{{ "VOLUNTEER.LIST.EMAIL" | translate }}</mat-label>
+                                <input matInput formControlName="email" type="email" name="email" ngModel email="true" >
+                                <mat-error *ngIf="form.controls.email.errors?.required">{{ "FIELD.REQUIRED.EMAIL" | translate }}</mat-error>
+                                <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">aaaaaaaaaa{{ "FIELD.INVALID.EMAIL" | translate }}</mat-error>
+                            </mat-form-field>
+                            -->
                         </div>
 
                         <div fxFlex="100" class="mt-2 text-center w-100">
-                            <button mat-raised-button color="primary" type="submit" class="uppercase mx-1" [disabled]="!form.valid" > {{(isAdding ? "BTN.ADD" : "BTN.UPDATE") | translate }} </button>
+                            <button mat-raised-button color="primary" type="submit" class="uppercase mx-1" [disabled]=!checkForm() > {{(isAdding ? "BTN.ADD" : "BTN.UPDATE") | translate }} </button>
                             <button mat-raised-button color="warn" type="button" class="uppercase" (click)='handlerCancel()' >{{ "BTN.CANCEL" | translate }}</button>
                         </div>
                     </div>
