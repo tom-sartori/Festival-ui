@@ -56,6 +56,10 @@ export class VolunteerService {
     return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/firstname/' +firstname);
   }
 
+  public getByFirstAndLastName(name : string): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/firstname-lastname/' +name);
+  }
+
   public getByZone(idZone: string): Observable<Volunteer[]> {
     return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +idZone);
   }
@@ -73,11 +77,7 @@ export class VolunteerService {
         { headers }
     );
   }
-/*
-  public deleteVolunteer(id: string): void {
-    this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
-  }
-*/
+
   public deleteVolunteer(id: string): Observable<HttpResponse<Volunteer>> {
     const headers = {
       'Content-Type' : 'application/json',
@@ -94,17 +94,3 @@ export class VolunteerService {
   }
 
 }
-
-
-// public createEvent(event: Event): Observable<Event> {
-//   const headers = {
-//     'Content-Type' : 'application/json',
-//     'Accept' : 'application/json'
-//   };
-//
-//   return this.http.post<Event>(
-//       this.apiUrl + "/reservation/event",
-//       event,
-//       { headers }
-//   );
-// }

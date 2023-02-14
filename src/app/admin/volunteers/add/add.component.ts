@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators
 import {AppService} from "../../../services/app.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ActivatedRoute, Router} from "@angular/router";
-import * as _ from "lodash";
 import {VolunteerService} from "../../../services/volunteer.service";
 import {Volunteer} from "../../../models/volunteer.model";
 import {emailValidator} from "@theme/utils/app-validators";
@@ -15,13 +14,7 @@ import {emailValidator} from "@theme/utils/app-validators";
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-  public volunteers: Volunteer[] = []
-
-  public form = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    email: ['', Validators.compose([Validators.required, emailValidator])],
-  });
+  public form! : UntypedFormGroup
   public isAdding: boolean = true;  // By default, is adding but can update.
   public currentVolunteer: Volunteer | undefined;
 
@@ -33,12 +26,16 @@ export class AddComponent implements OnInit {
       public snackBar: MatSnackBar,
       private activatedRoute: ActivatedRoute,
       public router: Router,
-      private fb: FormBuilder
+      private fb: UntypedFormBuilder
 
   ) { }
 
   ngOnInit(): void {
-    this.setForm();
+    this.form = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, emailValidator])],
+    });
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         // Is updating.
@@ -46,7 +43,6 @@ export class AddComponent implements OnInit {
         this.volunteerService.getById(params['id']).subscribe({
           next: (volunteer) => {
             this.currentVolunteer = volunteer;
-            this.setForm();
             this.patchForm(this.currentVolunteer);
           },
           error: (error) => {
@@ -65,14 +61,9 @@ export class AddComponent implements OnInit {
       else {
         // Is adding.
         this.isAdding = true;
-        this.setForm();
       }
     });
   }
-  get emailControl() {
-    return this.form.get('email');
-  }
-
 
   private patchForm(values: any) {
     this.form.patchValue({
@@ -84,11 +75,8 @@ export class AddComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.form.valid) {
-      const volunteerFirstname = this.form.value.firstName;
-      const volunteerLastname = this.form.value.lastName;
-      const volunteerEmail = this.form.value.email;
-      if (volunteerFirstname != null && volunteerLastname != null && volunteerEmail != null) {
-        let volunteerToAdd = new Volunteer('', volunteerFirstname, volunteerLastname, volunteerEmail);
+      const volunteerToAdd : Volunteer = new Volunteer('', this.form.value.firstName, this.form.value.lastName, this.form.value.email)
+      if (volunteerToAdd.firstName != null && volunteerToAdd.lastName != null && volunteerToAdd.email != null) {
         if (this.isAdding) {
           this.volunteerService.createVolunteer(volunteerToAdd).subscribe({
             next: () => {
@@ -108,7 +96,7 @@ export class AddComponent implements OnInit {
             }
           })
         } else {
-          let volunteerToUpdate = new Volunteer(this.currentVolunteer!.id, volunteerFirstname, volunteerLastname, volunteerEmail);
+          let volunteerToUpdate = new Volunteer(this.currentVolunteer!.id, this.form.value.firstName, this.form.value.lastName, this.form.value.email);
           this.volunteerService.update(volunteerToUpdate)
               .subscribe({
                 next: () => {
@@ -140,20 +128,6 @@ export class AddComponent implements OnInit {
       });
     }
   }
-
-  private setForm() {
-    this.form = this.formBuilder.group(this.volunteerGroup());
-  }
-
-  private volunteerGroup(): any {
-    return {
-      id: '',
-      firstName: [null, Validators.required],
-      lastName: [null, Validators.required],
-      email: [null, Validators.required],
-    };
-  }
-  ;
 
   handlerCancel() {
     this.router.navigate(['/admin/volunteer']).then();

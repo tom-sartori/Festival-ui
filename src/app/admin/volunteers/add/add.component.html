@@ -32,8 +32,8 @@
                         </div>
 
                         <div fxFlex="100" class="mt-2 text-center w-100">
-                            <button mat-raised-button color="primary" type="submit" class="uppercase mx-1" [disabled]=!checkForm() > {{(isAdding ? "BTN.ADD" : "BTN.UPDATE") | translate }} </button>
                             <button mat-raised-button color="warn" type="button" class="uppercase" (click)='handlerCancel()' >{{ "BTN.CANCEL" | translate }}</button>
+                            <button mat-raised-button color="accent" type="submit" class="uppercase mx-1" [disabled]=!checkForm() > {{(isAdding ? "BTN.ADD" : "BTN.UPDATE") | translate }} </button>
                         </div>
                     </div>
                 </div>

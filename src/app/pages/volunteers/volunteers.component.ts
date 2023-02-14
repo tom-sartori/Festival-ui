@@ -5,7 +5,6 @@ import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {Paginator} from "@models/shared/paginator.model";
 import {AppService} from "@services/app.service";
 import {PaginationService} from "@services/pagination.service";
-import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-volunteers',
@@ -49,15 +48,13 @@ export class VolunteersComponent implements OnInit {
       this.getVolunteerList();
       return;
     }
-    const searchValue = searchBarValue.trim();
-    let searchByName$ = this.volunteerService.getByLastName(searchValue);
-    let searchByFirstName$ = this.volunteerService.getByFirstName(searchValue);
 
-    forkJoin([searchByName$, searchByFirstName$]).subscribe(([searchByName, searchByFirstName]) => {
-      this.volunteersList = [...searchByName, ...searchByFirstName];
+    this.volunteerService.getByFirstAndLastName(searchBarValue).subscribe((volunteer: Volunteer[]) => {
+      this.volunteersList = volunteer;
       this.paginateData();
     });
   }
+
 
   public changeCountPerPage(countPerPage: number){
     this.paginator.countPerPage = countPerPage;
