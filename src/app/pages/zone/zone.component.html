@@ -1,1 +1,57 @@
-<p>zone works!</p>
+<app-header-image
+        [backgroundImage]="'assets/images/game/background.png'"
+        [bgImageAnimate]="true"
+        [contentOffsetToTop]="false"
+        [title]='"GAME.TITLE" | translate'
+        [desc]='"GAME.DESC" | translate'>
+</app-header-image>
+
+
+<div class="px-3">
+    <div class="theme-container">
+
+        <mat-sidenav-container class='all-menu-items mt-3'>
+
+            <mat-sidenav-content>
+                <div fxLayout="row wrap" fxLayoutAlign="space-around center" class='all-menu-items-wrapper mt-0'>
+
+                    <!-- Toolbar. -->
+                    <div fxFlex="100" class="px-2 pb-2 pt-0">
+                        <app-game-item-toolbar
+                                (onSearch)="onSearch($event)"
+                                (onChangeCountPerPage)="changeCountPerPage($event)"
+                                (onChangeViewType)="changeViewType($event)" >
+                        </app-game-item-toolbar>
+                    </div>
+
+                    <!-- Game item list.  -->
+                    <div *ngFor="let zone of paginator.data" [fxFlex]="(viewType == 'grid') ? viewCol : 100" class="item">
+                        <app-zone-item
+                                [zone]="zone"
+                                [viewType]="viewType"
+                                [viewColChanged]="viewCol">
+                        </app-zone-item>
+                    </div>
+
+                    <app-loading-spinner
+                            fxFlex="100" fxLayoutAlign="center center" [style.min-height.px]="200"
+                            [isLoading]="zoneList && zoneList.length == 0"
+                            [message]="message" >
+                    </app-loading-spinner>
+
+                    <!-- Pagination. -->
+                    <div *ngIf="zoneList && zoneList.length > 0" fxFlex="100" fxLayoutAlign="center center" class="p-2">
+                        <mat-paginator
+                                [length]="paginator.total"
+                                [pageSize]="paginator.countPerPage"
+                                (page)="changePage($event)"
+                                class="w-100 mat-elevation-z1">
+                        </mat-paginator>
+                    </div>
+
+                </div>
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+    </div>
+</div>
