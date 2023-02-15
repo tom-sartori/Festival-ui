@@ -38,7 +38,9 @@
     }
   },
   "ZONE": {
-    "NAV": "Zones"
+    "NAV": "Zones",
+    "TITLE": "Nos Zones",
+    "DESC": "Voici la liste complète des zones de jeux que vous pouvez retrouver à notre festival"
   },
   "VOLUNTEER": {
     "NAV": "Nos bénévoles",

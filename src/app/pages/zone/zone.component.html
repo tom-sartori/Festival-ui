@@ -2,8 +2,8 @@
         [backgroundImage]="'assets/images/game/background.png'"
         [bgImageAnimate]="true"
         [contentOffsetToTop]="false"
-        [title]='"GAME.TITLE" | translate'
-        [desc]='"GAME.DESC" | translate'>
+        [title]='"ZONE.TITLE" | translate'
+        [desc]='"ZONE.DESC" | translate'>
 </app-header-image>
 
 
@@ -26,11 +26,13 @@
 
                     <!-- Game item list.  -->
                     <div *ngFor="let zone of paginator.data" [fxFlex]="(viewType == 'grid') ? viewCol : 100" class="item">
+                        <a [routerLink]="['/details', zone.id]">
                         <app-zone-item
                                 [zone]="zone"
                                 [viewType]="viewType"
                                 [viewColChanged]="viewCol">
                         </app-zone-item>
+                        </a>
                     </div>
 
                     <app-loading-spinner
