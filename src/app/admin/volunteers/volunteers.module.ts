@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";
-import {VolunteersComponent} from "./volunteers.component";
-import {ListComponent} from "./list/list.component";
-import {SharedModule} from "../../shared/shared.module";
+import { RouterModule, Routes } from '@angular/router';
+import { VolunteersComponent } from './volunteers.component';
+import { ListComponent } from './list/list.component';
+import { SharedModule } from '@shared/shared.module';
 import { AddComponent } from './add/add.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 export const routes: Routes = [
   { path: '', component: VolunteersComponent, pathMatch: 'full' },
@@ -17,7 +18,8 @@ export const routes: Routes = [
   declarations: [
     VolunteersComponent,
     ListComponent,
-    AddComponent
+    AddComponent,
+    DialogComponent
   ],
   exports: [
     ListComponent

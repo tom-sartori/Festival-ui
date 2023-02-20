@@ -1,0 +1,52 @@
+<mat-card class="m-2 p-0">
+
+	<div fxLayout="row wrap" fxLayoutAlign="space-between center" class="w-100 p-2">
+		<div></div>
+		<button mat-raised-button color="primary" (click)="onAdd()">
+			<mat-icon>add</mat-icon>
+			{{ 'ZONE.ADD' | translate }}
+		</button>
+	</div>
+	<mat-divider></mat-divider>
+
+	<div class="table-wrapper">
+		<mat-table [dataSource]="dataSource" matSort [matSortDisableClear]="true" class="w-100">
+
+			<!-- Name Column -->
+			<ng-container matColumnDef="name">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>{{ "FIELD.LABEL.NAME" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef="let zone"> {{ zone.name }}</mat-cell>
+			</ng-container>
+
+			<!-- Actions Column -->
+			<ng-container matColumnDef="action">
+				<mat-header-cell *matHeaderCellDef>{{ "FIELD.LABEL.ACTION" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef="let zone">
+
+					<!-- Button used to update with the dialog component. -->
+					<button mat-icon-button color="primary" (click)="onUpdate(zone.id)" matTooltip="Edit">
+						<mat-icon>edit</mat-icon>
+					</button>
+
+					<button mat-icon-button color="warn" (click)="delete(zone.id)" matTooltip='{{ "BTN.REMOVE" | translate }}'>
+						<mat-icon>delete</mat-icon>
+					</button>
+				</mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let zone; columns: displayedColumns;"></mat-row>
+		</mat-table>
+
+		<!-- No data message -->
+		<div>
+			<app-loading-spinner
+				fxFlex="100" fxLayoutAlign="center center" [style.min-height.px]="200"
+				[isLoading]="zoneList && zoneList.length == 0"
+				[message]="message" >
+			</app-loading-spinner>
+		</div>
+
+	</div>
+	<mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</mat-card>

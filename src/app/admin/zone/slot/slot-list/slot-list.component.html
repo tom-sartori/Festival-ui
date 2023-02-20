@@ -1,0 +1,81 @@
+<mat-card class='m-2 p-0'>
+
+	<div fxLayout='row wrap' fxLayoutAlign='space-between center' class='w-100 p-2'>
+		<h3>{{ "ZONE.SLOT.TITLE" | translate }}</h3>
+		<button mat-raised-button color='primary' (click)='openDialog(null)'>
+			<mat-icon>add</mat-icon>
+			{{ 'ZONE.SLOT.ADD' | translate }}
+		</button>
+	</div>
+	<mat-divider></mat-divider>
+
+	<div class='table-wrapper'>
+		<mat-table [dataSource]='dataSource' matSort [matSortDisableClear]='true' class='w-100'>
+
+			<!-- StartDate Column -->
+			<ng-container matColumnDef='startDate'>
+				<mat-header-cell *matHeaderCellDef mat-sort-header>
+					{{ "FIELD.LABEL.START_DATE" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef='let slot'> {{ slot.startDate }}</mat-cell>
+			</ng-container>
+
+			<!-- EndDate Column -->
+			<ng-container matColumnDef='endDate'>
+				<mat-header-cell *matHeaderCellDef mat-sort-header>
+					{{ "FIELD.LABEL.END_DATE" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef='let slot'> {{ slot.endDate }}</mat-cell>
+			</ng-container>
+
+			<!-- VolunteerRefs Column -->
+			<ng-container matColumnDef='volunteerRefs'>
+				<mat-header-cell *matHeaderCellDef mat-sort-header>
+					{{ "FIELD.LABEL.VOLUNTEER" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef='let slot'>
+					<mat-chip-list>
+						<mat-chip *ngFor='let volunteerRef of slot.volunteerRefs' selected disableRipple='true'
+						          color='primary' class='uppercase ws-nowrap'>
+
+							{{ (volunteerList | filterById: volunteerRef)?.firstName }}
+							{{ (volunteerList | filterById: volunteerRef)?.lastName }}
+
+
+
+
+						</mat-chip>
+					</mat-chip-list>
+				</mat-cell>
+			</ng-container>
+
+			<!-- Actions Column -->
+			<ng-container matColumnDef='action'>
+				<mat-header-cell *matHeaderCellDef>{{ "FIELD.LABEL.ACTION" | translate }}</mat-header-cell>
+				<mat-cell *matCellDef='let slot'>
+
+					<!-- Button used to update with the dialog component. -->
+					<button mat-icon-button color='primary' (click)='openDialog(slot)' matTooltip='Edit'>
+						<mat-icon>edit</mat-icon>
+					</button>
+
+					<button mat-icon-button color='warn' (click)='delete(slot)'
+					        matTooltip='{{ "BTN.REMOVE" | translate }}'>
+						<mat-icon>delete</mat-icon>
+					</button>
+				</mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+			<mat-row *matRowDef='let slot; columns: displayedColumns;'></mat-row>
+		</mat-table>
+
+		<div>
+			<mat-chip-list *ngIf='this.slotList.length == 0' fxFlex='100'
+			               fxLayoutAlign='center center' [style.min-height.px]='200'>
+				<mat-chip selected disableRipple='true' color='warn' class='uppercase ws-nowrap'>
+					{{ "ZONE.SLOT.NO_DATA" | translate }}
+				</mat-chip>
+			</mat-chip-list>
+		</div>
+
+	</div>
+	<mat-paginator [pageSizeOptions]='[5, 10, 25, 50]'></mat-paginator>
+</mat-card>
