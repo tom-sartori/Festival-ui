@@ -2,12 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
-import { GameService } from 'src/app/services/game.service';
-import { Game } from '@models/game.model';
-import { DialogComponent } from '../dialog/dialog.component';
-import { DialogService } from '@services/dialog.service';
+import { Zone } from '@models/zone.model';
 import { TranslateService } from '@services/translate.service';
+import { DialogService } from '@services/dialog.service';
 import { SnackBarService } from '@services/snack-bar.service';
+import { ZoneService } from '@services/zone.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-list',
@@ -15,36 +15,38 @@ import { SnackBarService } from '@services/snack-bar.service';
 	styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-	displayedColumns: string[] = ['name', 'type', 'action'];
-	dataSource!: MatTableDataSource<Game>;
+	displayedColumns: string[] = ['name', 'action'];
+	dataSource!: MatTableDataSource<Zone>;
 	@ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 	@ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-	public gameList: Game[] = [];
+	public zoneList: Zone[] = [];
 	public message: string | null = null;
 
 	constructor(
 		public translateService: TranslateService,
-		public gameService: GameService,
+		public zoneService: ZoneService,
 		public snackBarService: SnackBarService,
-		public dialogService: DialogService
+		public dialogService: DialogService,
+		public router: Router
 	) {
 	}
 
 	ngOnInit(): void {
-		this.getGameList();
+		this.getZoneList();
 	}
 
-	public getGameList(): void {
-		this.gameService.get().subscribe({
-			next: (response: Game[]) => {
-				this.gameList = response;
-				if (this.gameList.length > 0) {
+
+	public getZoneList(): void {
+		this.zoneService.get().subscribe({
+			next: (response: Zone[]) => {
+				this.zoneList = response;
+				if (this.zoneList.length > 0) {
 					this.message = null;
 					this.initDataSource();
 				}
 				else {
-					this.message = this.translateService.getTranslatedValue('GAME.NO_DATA');
+					this.message = this.translateService.getTranslatedValue('ZONE.NO_DATA');
 				}
 			},
 			error: (error) => {
@@ -54,7 +56,7 @@ export class ListComponent implements OnInit {
 	}
 
 	public initDataSource() {
-		this.dataSource = new MatTableDataSource(this.gameList);
+		this.dataSource = new MatTableDataSource(this.zoneList);
 		this.dataSource.paginator = this.paginator;
 
 		this.dataSource.sortingDataAccessor = (
@@ -74,7 +76,7 @@ export class ListComponent implements OnInit {
 		this.sort.sortChange.emit(sortState);
 	}
 
-	public delete(gameId: string) {
+	public delete(zoneId: string) {
 		const message = this.translateService.getTranslatedValue(
 			'MESSAGE.SURE_DELETE'
 		);
@@ -82,7 +84,7 @@ export class ListComponent implements OnInit {
 		dialogRef.afterClosed().subscribe((dialogResult) => {
 			if (dialogResult) {
 				// Delete element.
-				this.gameService.deleteGame(gameId).subscribe({
+				this.zoneService.delete(zoneId).subscribe({
 					next: () => {
 						// Deleted.
 						this.snackBarService.openSuccess(
@@ -90,7 +92,7 @@ export class ListComponent implements OnInit {
 								'SNACKBAR.DELETED'
 							)!
 						);
-						this.getGameList();
+						this.getZoneList();
 					},
 					error: (error) => {
 						console.log(error);
@@ -105,10 +107,11 @@ export class ListComponent implements OnInit {
 		});
 	}
 
-	public openDialog(game: Game | null) {
-		this.dialogService
-			.openDialog(DialogComponent, game)
-			.afterClosed()
-			.subscribe(() => this.getGameList());
+	public onAdd() {
+		this.router.navigate(['/admin/zone/add']).then();
+	}
+
+	public onUpdate(id: string) {
+		this.router.navigate(['/admin/zone/update', id]).then();
 	}
 }

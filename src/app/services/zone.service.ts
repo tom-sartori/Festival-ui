@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AppService} from "./app.service";
-import {Zone} from "../models/zone.model";
-import {Observable} from "rxjs";
+import { AppService } from './app.service';
+import { Zone } from '@models/zone.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +24,8 @@ export class ZoneService {
     );
   }
 
-  public get(): Observable<Zone> {
-    return this.appService.http.get<Zone>(this.appService.apiUrl + this.dataPath);
+  public get(): Observable<Zone[]> {
+    return this.appService.http.get<Zone[]>(this.appService.apiUrl + this.dataPath);
   }
 
   public getById(id: string): Observable<Zone> {
@@ -61,21 +61,20 @@ export class ZoneService {
     );
   }
 
-
   public update(zone: Zone): Observable<Zone> {
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
 
-    return this.appService.http.put<Zone>(
+    return this.appService.http.patch<Zone>(
         this.appService.apiUrl + this.dataPath + '/' + zone.id,
         zone,
         { headers }
     );
   }
 
-  public deleteGame(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
+  public delete(id: string): Observable<{}> {
+    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' + id);
   }
 }
