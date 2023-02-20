@@ -50,7 +50,10 @@ export class ListComponent implements OnInit {
 				}
 			},
 			error: (error) => {
-				this.snackBarService.openError(error);
+				console.warn(error);
+				this.snackBarService.openError(this.translateService.getTranslatedValue(
+					'SNACKBAR.ERROR'
+				)!);
 			}
 		});
 	}
