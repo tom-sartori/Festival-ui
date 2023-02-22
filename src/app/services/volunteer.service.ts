@@ -41,7 +41,6 @@ export class VolunteerService {
   }
 
   public update(volunteer: Volunteer): Observable<Volunteer> {
-    console.log(volunteer);
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -53,11 +52,7 @@ export class VolunteerService {
         { headers }
     );
   }
-/*
-  public deleteVolunteer(id: string): void {
-    this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
-  }
-*/
+
   public deleteVolunteer(id: string): Observable<HttpResponse<Volunteer>> {
     const headers = {
       'Content-Type' : 'application/json',
@@ -74,17 +69,3 @@ export class VolunteerService {
   }
 
 }
-
-
-// public createEvent(event: Event): Observable<Event> {
-//   const headers = {
-//     'Content-Type' : 'application/json',
-//     'Accept' : 'application/json'
-//   };
-//
-//   return this.http.post<Event>(
-//       this.apiUrl + "/reservation/event",
-//       event,
-//       { headers }
-//   );
-// }
