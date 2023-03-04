@@ -1,0 +1,29 @@
+<div class="px-3 py-5">
+    <div class="theme-container">
+        <mat-card class="px-5 py-4">
+            <div fxLayout="row wrap" class="flex-wrapper">
+
+                <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.gt-xs="50" class="p-3">
+                    <h2 class="fw-600">{{zone.name}}</h2>
+                    <div *ngFor="let creneau of this.slots" >
+                        <p>Date de début : {{creneau.startDate}}</p>
+                        <p>Date de fin : {{creneau.endDate}}</p>
+
+                    </div>
+                    <mat-list role="list" *ngFor="let currentGame of games">
+                        <mat-list-item role="listitem">{{currentGame.name}}</mat-list-item>
+                    </mat-list>
+                </div>
+
+                <div *ngFor="let slot of zone.slots">
+                    <p>{{slot.startDate}}</p>
+                    <p>{{slot.endDate}}</p>
+                    <div *ngFor="let volunteerRef of slot.volunteerRefs">
+                        {{ (volunteerList | filterById: volunteerRef)?.firstName }}
+                        {{ (volunteerList | filterById: volunteerRef)?.lastName }}
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

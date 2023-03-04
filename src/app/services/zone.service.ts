@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AppService } from './app.service';
 import { Zone } from '@models/zone.model';
 import { Observable } from 'rxjs';
+import {Observable} from "rxjs";
+import {Game} from "@models/game.model";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,16 @@ export class ZoneService {
 
   public getById(id: string): Observable<Zone> {
     return this.appService.http.get<Zone>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
+  }
+
+  /**
+   *
+   * Get zones by their name.
+   * @param name the name of the zone to retrieve.
+   * @return An observable that emits the retrieved zone.
+   */
+  public getByName(name : string): Observable<Zone[]> {
+    return this.appService.http.get<Zone[]>(this.appService.apiUrl + this.dataPath+ '/name/' +name);
   }
 
   ///TODO : Liste des bénévoles / créneau pour une zone donnée
