@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ZoneService} from "@services/zone.service";
 import {Zone} from "@models/zone.model";
@@ -8,6 +8,9 @@ import {forkJoin} from "rxjs";
 import {Volunteer} from "@models/volunteer.model";
 import {VolunteerService} from "@services/volunteer.service";
 import {Slot} from "@models/slot.model";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort, Sort} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-details',
@@ -20,7 +23,15 @@ export class DetailsComponent implements OnInit {
   public sub: any;
   public games : Game[] = [];
 
+  dataSource!: MatTableDataSource<Slot>;
+  public message: string | null = null;
+
+  displayedColumns: string[] = ['startDate', 'endDate', 'volunteerRefs', 'games'];
+
   public slots : Slot[] = []
+
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
   public volunteers : string[] = [];
   public volunteerList: Volunteer[] = [];
 
@@ -36,6 +47,25 @@ export class DetailsComponent implements OnInit {
       this.getZoneById(params['id'])
     })
     this.getVolunteerList();
+
+
+  }
+
+  public initDataSource() {
+    this.dataSource = new MatTableDataSource(this.slots);
+    console.log(this.dataSource)
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.dataSource.sortingDataAccessor = (data, sortHeaderId) => {
+      if(!this.getPropertyByPath(data, sortHeaderId)) {
+        return this.sort.direction === "asc" ? '3' : '1';
+      }
+      return '2' + this.getPropertyByPath(data, sortHeaderId).toString().toLocaleLowerCase();
+    }
+  }
+
+  getPropertyByPath(item: Object, property: string) {
+    return (property.split('.').reduce((o:any, i:any) => o[i], item));
   }
 
   public getZoneById(id: string){
@@ -43,6 +73,7 @@ export class DetailsComponent implements OnInit {
       this.zone = zone;
       this.getGamesByIds(zone.gameRefs)
       this.slots = zone.slots
+      this.initDataSource();
 
     })
   }

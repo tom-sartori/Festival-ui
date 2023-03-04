@@ -1,29 +1,76 @@
 <div class="px-3 py-5">
     <div class="theme-container">
         <mat-card class="px-5 py-4">
-            <div fxLayout="row wrap" class="flex-wrapper">
-
-                <div fxFlex="100" fxFlex.gt-sm="33.3" fxFlex.gt-xs="50" class="p-3">
-                    <h2 class="fw-600">{{zone.name}}</h2>
-                    <div *ngFor="let creneau of this.slots" >
-                        <p>Date de début : {{creneau.startDate}}</p>
-                        <p>Date de fin : {{creneau.endDate}}</p>
-
-                    </div>
-                    <mat-list role="list" *ngFor="let currentGame of games">
-                        <mat-list-item role="listitem">{{currentGame.name}}</mat-list-item>
-                    </mat-list>
-                </div>
-
-                <div *ngFor="let slot of zone.slots">
-                    <p>{{slot.startDate}}</p>
-                    <p>{{slot.endDate}}</p>
-                    <div *ngFor="let volunteerRef of slot.volunteerRefs">
-                        {{ (volunteerList | filterById: volunteerRef)?.firstName }}
-                        {{ (volunteerList | filterById: volunteerRef)?.lastName }}
-                    </div>
-                </div>
+            <div fxLayout='row wrap' fxLayoutAlign='space-between center' class='w-100 p-2'>
+                <h3>{{ zone.name }}</h3>
             </div>
+            <mat-divider></mat-divider>
+
+            <div class='table-wrapper'>
+                <mat-table [dataSource]="dataSource" matSort [matSortDisableClear]='true' class='w-100'>
+
+                    <!-- StartDate Column -->
+                    <ng-container matColumnDef='startDate'>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "FIELD.LABEL.START_DATE" | translate }}</mat-header-cell>
+                        <mat-cell *matCellDef='let slot'> {{ slot.startDate }}</mat-cell>
+                    </ng-container>
+
+                    <!-- EndDate Column -->
+                    <ng-container matColumnDef='endDate'>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "FIELD.LABEL.END_DATE" | translate }}</mat-header-cell>
+                        <mat-cell *matCellDef='let slot'> {{ slot.endDate }}</mat-cell>
+                    </ng-container>
+
+                    <!-- VolunteerRefs Column -->
+                    <ng-container matColumnDef='volunteerRefs'>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "FIELD.LABEL.VOLUNTEER" | translate }}</mat-header-cell>
+                        <mat-cell *matCellDef='let slot'>
+                            <mat-chip-list>
+                                <mat-chip *ngFor='let volunteerRef of slot.volunteerRefs' selected disableRipple='true'
+                                          color='primary' class='uppercase ws-nowrap'>
+
+                                    {{ (volunteerList | filterById: volunteerRef)?.firstName }}
+                                    {{ (volunteerList | filterById: volunteerRef)?.lastName }}
+
+                                </mat-chip>
+                            </mat-chip-list>
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- VolunteerRefs Column -->
+                    <ng-container matColumnDef='games'>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>
+                            {{ "FIELD.LABEL.GAME" | translate }}</mat-header-cell>
+                        <mat-cell *matCellDef='let slot'>
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let currentGame of games" selected disableRipple='true'
+                                          color='primary' class='uppercase ws-nowrap'>
+
+                                    {{ currentGame.name}}
+
+                                </mat-chip>
+                            </mat-chip-list>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+                    <mat-row *matRowDef='let slot; columns: displayedColumns;'></mat-row>
+                </mat-table>
+
+                <div *ngIf="slots.length == null">
+                    <mat-chip-list fxFlex='100'
+                                   fxLayoutAlign='center center' [style.min-height.px]='200'>
+                        <mat-chip selected disableRipple='true' color='warn' class='uppercase ws-nowrap'>
+                            {{ "ZONE.SLOT.NO_DATA" | translate }}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+
+            </div>
+            <mat-paginator [pageSizeOptions]='[5, 10, 25, 50]'></mat-paginator>
         </mat-card>
     </div>
 </div>
