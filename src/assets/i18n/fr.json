@@ -41,10 +41,20 @@
     "NAV": "Zones",
     "TITLE": "Nos Zones",
     "DESC": "Voici la liste complète des zones de jeux que vous pouvez retrouver à notre festival"
+    "ADD": "Ajouter une zone",
+    "UPDATE": "Modifier la zone",
+    "NO_DATA": "Aucune zone disponible",
+    "SLOT": {
+      "TITLE": "Créneaux pour cette zone",
+      "ADD": "Ajouter un créneau",
+      "UPDATE": "Modifier le créneau",
+      "NO_DATA": "Aucun créneau disponible"
+    }
   },
   "VOLUNTEER": {
     "NAV": "Nos bénévoles",
-    "ADD": "Ajouter un bénévole"
+    "ADD": "Ajouter un bénévole",
+    "UPDATE": "Modifier le bénévole"
   },
   "PRODUCT": {
     "TITLE": "Nos produits",
@@ -146,7 +156,11 @@
       "SEARCH": "Rechercher",
       "ACTION": "Action",
       "DESCRIPTION": "Description",
-      "CATEGORY": "Catégorie"
+      "CATEGORY": "Catégorie",
+      "GAME": "Jeux",
+      "VOLUNTEER": "Les volontaires",
+      "START_DATE": "Date de début",
+        "END_DATE": "Date de fin"
     },
     "PLACEHOLDER": {
       "NAME": "Votre nom",
@@ -207,7 +221,10 @@
       "ADDRESS": "Une adresse est requise. ",
       "DESCRIPTION": "Une description est requise. ",
       "CATEGORY": "Une catégorie est requise. ",
-      "IMAGE": "Une image est requise. "
+      "IMAGE": "Une image est requise. ",
+      "GAME": "Au moins un jeu est requis. ",
+      "START_DATE": "Une date de début est requise. ",
+      "END_DATE": "Une date de fin est requise. "
     }
   },
   "SNACKBAR": {

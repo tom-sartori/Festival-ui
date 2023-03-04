@@ -8,13 +8,10 @@ import { AppSettings } from '../app.settings';
 	providedIn: 'root'
 })
 export class DialogService {
-	constructor(public dialog: MatDialog, public appSettings: AppSettings) {}
+	constructor(public dialog: MatDialog, public appSettings: AppSettings) {
+	}
 
-	public openDialog(
-		component: any,
-		data: any,
-		panelClass: string = 'theme-dialog'
-	) {
+	public openDialog(component: any, data: any = null, panelClass: string = 'theme-dialog') {
 		return this.dialog.open(component, {
 			data: data,
 			panelClass: panelClass,
