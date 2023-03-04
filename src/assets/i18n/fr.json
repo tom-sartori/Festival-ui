@@ -1,5 +1,4 @@
 {
-  "LOGOUT": "Se déconnecter",
   "NAV": {
     "PAGES": "Des pages",
     "CHEFS": "Cuisinier",
@@ -73,15 +72,20 @@
     "CONTACT_US": "Contactez-nous !"
   },
   "LOGIN": {
+    "NAV": "S'identifier",
     "TITLE": "S'identifier",
     "DESC": "Pas encore de compte ? Créez-le tout de suite !",
     "KEEP_SIGNED_IN": "Rester connecté"
   },
   "REGISTER": {
+    "NAV": "S'inscrire",
     "TITLE": "S'inscrire",
     "DESC": "Vous avez déjà un compte ? Connectez-vous !",
     "RECEIVE_NEWSLETTER": "Recevoir la newsletter",
     "CONDITIONS_MESSAGE": "En cliquant sur \"Créer un compte\", vous acceptez nos"
+  },
+  "LOGOUT": {
+    "NAV": "Se déconnecter"
   },
   "ACCOUNT": {
     "TITLE": "Mon compte",
@@ -111,9 +115,9 @@
     "NO": "Non",
     "OK": "D'accord",
     "SUBSCRIBE": "S'inscrire",
-    "SIGN_IN": "Créer mon compte",
     "RESET_PASSWORD": "Mot de passe oublié ?",
     "CREATE_ACCOUNT": "Créer un compte",
+    "LOGIN": "S'identifier",
     "HIDE": "Cacher",
     "READ_MORE": "En savoir plus",
     "ADD_ADDRESS": "Ajouter une adresse",
@@ -230,6 +234,10 @@
     "UPDATED": "L'élément a été mis à jour avec succès. ",
     "DELETED": "L'élément a été supprimé avec succès. ",
     "ERROR": "Une erreur est survenue. ",
+    "INVALID_EMAIL_OR_PASSWORD": "Email ou mot de passe incorrect. ",
+    "USER_ALREADY_EXISTS": "Cet utilisateur existe déjà. ",
+    "LOGIN_SUCCESS": "Vous êtes connecté. ",
+    "REGISTRATION_SUCCESS": "Inscription réalisée avec succès. ",
     "CATEGORY": {
       "CREATED": "La catégorie a été créée avec succès. ",
       "UPDATED": "La catégorie a été mise à jour avec succès. ",
