@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AppService } from './app.service';
 import { Zone } from '@models/zone.model';
-import { Observable } from 'rxjs';
 import {Observable} from "rxjs";
-import {Game} from "@models/game.model";
 
 @Injectable({
   providedIn: 'root'

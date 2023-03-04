@@ -40,7 +40,7 @@
   "ZONE": {
     "NAV": "Zones",
     "TITLE": "Nos Zones",
-    "DESC": "Voici la liste complète des zones de jeux que vous pouvez retrouver à notre festival"
+    "DESC": "Voici la liste complète des zones de jeux que vous pouvez retrouver à notre festival",
     "ADD": "Ajouter une zone",
     "UPDATE": "Modifier la zone",
     "NO_DATA": "Aucune zone disponible",
