@@ -13,31 +13,30 @@ export const routes = [
   {
     path: '',
     component: AdminComponent, children: [
-      { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-      { path: 'game', loadChildren: () => import('./game/game.module').then(m => m.GameModule), data: { breadcrumb: 'Game' } },
       { path: 'zone', loadChildren: () => import('./zone/zone.module').then(m => m.ZoneModule), data: { breadcrumb: 'Zone' } },
-      { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule), data: { breadcrumb: 'Products' } },
-      { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule), data: { breadcrumb: 'Users' } },
-      { path: 'analytics', loadChildren: () => import('./analytics/analytics.module').then(m => m.AnalyticsModule), data: { breadcrumb: 'Analytics' } },
-      { path: 'volunteer', loadChildren: () => import('./volunteers/volunteers.module').then(m => m.VolunteersModule)}
+	  { path: 'game', loadChildren: () => import('./game/game.module').then(m => m.GameModule), data: { breadcrumb: 'Game' } },
+	  { path: 'volunteer', loadChildren: () => import('./volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Volunteer' } },
+	  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), data: { breadcrumb: 'Dashboard' } },
+	  { path: 'analytics', loadChildren: () => import('./analytics/analytics.module').then(m => m.AnalyticsModule), data: { breadcrumb: 'Analytics' } }
     ]
   }
 ];
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    MenuComponent,
-    UserMenuComponent,
-    FullScreenComponent,
-    MessagesComponent,
-    BreadcrumbComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ]
+	declarations: [
+		AdminComponent,
+		MenuComponent,
+		UserMenuComponent,
+		FullScreenComponent,
+		MessagesComponent,
+		BreadcrumbComponent
+	],
+	imports: [
+		CommonModule,
+		RouterModule.forChild(routes),
+		SharedModule
+	]
 })
-export class AdminModule { }
+export class AdminModule {
+}

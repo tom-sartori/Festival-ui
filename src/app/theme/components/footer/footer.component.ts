@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
-import {emailValidator} from '../../utils/app-validators';
-import {ContactService} from 'src/app/services/contact.service';
+import { Component, OnInit } from '@angular/core';
+import { ContactService } from 'src/app/services/contact.service';
+import { AppSettings, Settings } from '@app/app.settings';
 
 @Component({
 	selector: 'app-footer',
@@ -269,33 +268,17 @@ export class FooterComponent implements OnInit {
 			],
 		},
 	];
-	public feedbackForm!: UntypedFormGroup;
-	public subscribeForm!: UntypedFormGroup;
+
+	public settings: Settings;
+
 	constructor(
-		public formBuilder: UntypedFormBuilder,
-		public contactService: ContactService
-	) {}
+		public contactService: ContactService,
+		public appSettings: AppSettings,
+	) {
+		this.settings = this.appSettings.settings;
+	}
 
 	ngOnInit() {
 		this.contactService.get();
-		this.feedbackForm = this.formBuilder.group({
-			email: ['', Validators.compose([Validators.required, emailValidator])],
-			message: ['', Validators.required],
-		});
-		this.subscribeForm = this.formBuilder.group({
-			email: ['', Validators.compose([Validators.required, emailValidator])],
-		});
-	}
-
-	public onFeedbackFormSubmit(values: Object): void {
-		if (this.feedbackForm.valid) {
-			console.log(values);
-		}
-	}
-
-	public onSubscribeFormSubmit(values: Object): void {
-		if (this.subscribeForm.valid) {
-			console.log(values);
-		}
 	}
 }

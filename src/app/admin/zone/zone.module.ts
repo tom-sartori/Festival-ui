@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent as ZoneListComponent } from './list/list.component';
-import { SlotListComponent } from './slot/slot-list/slot-list.component';
+import { ListComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { AddComponent } from './add/add.component';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { SlotDialogComponent } from './slot/slot-dialog/slot-dialog.component';
+import { SlotListComponent } from '@admin/zone/slot/slot-list/slot-list.component';
+import { SlotDialogComponent } from '@admin/zone/slot/slot-dialog/slot-dialog.component';
 
 
 export const routes: Routes = [
-	{ path: '', component: ZoneListComponent, pathMatch: 'full' },
+	{ path: '', component: ListComponent, pathMatch: 'full' },
 	{ path: 'add', component: AddComponent, pathMatch: 'full' },
 	{ path: 'update/:id', component: AddComponent, pathMatch: 'full' },
 	{ path: 'update/', redirectTo: 'add', pathMatch: 'full' },
@@ -19,17 +18,15 @@ export const routes: Routes = [
 
 @NgModule({
 	declarations: [
-		ZoneListComponent,
+		ListComponent,
 		AddComponent,
 		SlotListComponent,
-        SlotDialogComponent
+		SlotDialogComponent
 	],
 	imports: [
 		CommonModule,
 		RouterModule.forChild(routes),
-		SharedModule,
-		CdkAccordionModule
+		SharedModule
 	]
 })
-export class ZoneModule {
-}
+export class ZoneModule { }
