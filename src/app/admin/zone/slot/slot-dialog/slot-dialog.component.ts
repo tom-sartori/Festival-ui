@@ -46,6 +46,16 @@ export class SlotDialogComponent implements OnInit {
 
 		if (this.slot) {
 			this.form.patchValue(this.slot);
+			this.form.patchValue({
+				startDate: this.datePipe.transform(this.slot.startDate, 'yyyy-MM-ddTHH:mm'),
+				endDate: this.datePipe.transform(this.slot.endDate, 'yyyy-MM-ddTHH:mm')
+			})
+		}
+		else {
+			this.form.patchValue({
+				startDate: this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm'),
+				endDate: this.datePipe.transform(new Date(), 'yyyy-MM-ddTHH:mm'),
+			})
 		}
 	}
 

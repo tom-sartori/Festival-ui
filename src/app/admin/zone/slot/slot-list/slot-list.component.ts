@@ -8,8 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AppSettings } from '@app/app.settings';
 import { VolunteerService } from '@services/volunteer.service';
 import { Volunteer } from '@models/volunteer.model';
-import * as _ from 'lodash';
-import { forEach } from 'lodash';
+import { forEach, isEqual } from 'lodash';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-slot-list[slotList]',
@@ -31,7 +31,8 @@ export class SlotListComponent implements OnInit, OnChanges {
 	constructor(
 		public dialog: MatDialog,
 		public appSettings: AppSettings,
-		public volunteerService: VolunteerService
+		public volunteerService: VolunteerService,
+		public datePipe: DatePipe
 	) {
 	}
 
@@ -81,7 +82,7 @@ export class SlotListComponent implements OnInit, OnChanges {
 			.subscribe((newSlot: Slot) => {
 				if (slot) {
 					forEach(this.slotList, (s: Slot, index: number) => {
-						if (_.isEqual(slot, s)) {
+						if (isEqual(slot, s)) {
 							// Replace the old slot with the new one
 							this.slotList[index] = newSlot;
 						}
@@ -98,7 +99,7 @@ export class SlotListComponent implements OnInit, OnChanges {
 
 	public delete(slot: Slot) {
 		forEach(this.slotList, (s: Slot, index: number) => {
-			if (_.isEqual(slot, s)) {
+			if (isEqual(slot, s)) {
 				// Remove the slot
 				this.slotList.splice(index, 1);
 				this.initDataSource();
