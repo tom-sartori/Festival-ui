@@ -64,6 +64,7 @@ import {CategoryToggleComponent} from './toolbar/category-toggle/category-toggle
 import {PaginationSelectComponent} from './toolbar/pagination-select/pagination-select.component';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
 import {ZoneItemComponent} from "@shared/zone-item/zone-item.component";
+import {ZoneItemToolbarComponent} from "@shared/zone-item-toolbar/zone-item-toolbar.component";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: false,
@@ -91,6 +92,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		ViewTypeComponent,
 		GameItemComponent,
 		ZoneItemComponent,
+		ZoneItemToolbarComponent,
   CategoryToggleComponent,
   PaginationSelectComponent,
   LoadingSpinnerComponent,
@@ -199,6 +201,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		GameItemToolbarComponent,
 		GameItemComponent,
 		ZoneItemComponent,
+		ZoneItemToolbarComponent,
 		CategoryToggleComponent,
 		LoadingSpinnerComponent,
 	],
