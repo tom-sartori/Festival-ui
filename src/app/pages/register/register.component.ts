@@ -54,9 +54,7 @@ export class RegisterComponent implements OnInit {
 						// Registration successful.
 						this.snackBarService.openSuccess(this.translateService.getTranslatedValue('SNACKBAR.REGISTRATION_SUCCESS')!)
 							.afterDismissed().subscribe(() => {
-								this.router.navigate(['/login']).then(() => {
-									window.location.reload();
-								});
+								this.router.navigate(['/login']).then();
 							}
 						);
 					},
