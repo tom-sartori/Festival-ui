@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
-import {DatePipe} from '@angular/common';
-import {Observable} from 'rxjs';
-import {MatBottomSheet} from '@angular/material/bottom-sheet';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog} from '@angular/material/dialog';
-import {TranslateService} from '@ngx-translate/core';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import {
 	Appellation,
 	Category,
@@ -20,11 +20,11 @@ import {
 	Vintage,
 	Wine
 } from 'src/app/app.models';
-import {AppSettings} from 'src/app/app.settings';
-import {environment} from 'src/environments/environment';
-import {ConfirmDialogComponent, ConfirmDialogModel} from '../shared/confirm-dialog/confirm-dialog.component';
-import {AlertDialogComponent} from '../shared/alert-dialog/alert-dialog.component';
-import {map} from 'rxjs/operators';
+import { AppSettings } from 'src/app/app.settings';
+import { environment } from 'src/environments/environment';
+import { ConfirmDialogComponent, ConfirmDialogModel } from '../shared/confirm-dialog/confirm-dialog.component';
+import { AlertDialogComponent } from '../shared/alert-dialog/alert-dialog.component';
+import { map } from 'rxjs/operators';
 
 export class Data {
 	constructor(
@@ -49,7 +49,9 @@ export class AppService {
 	public Data = new Data([], [], [], 0, 0, [], [], [], [], [], []);
 
 	public url = environment.url + '/assets/data/';
-	public apiUrl = "http://localhost:8080";
+
+	// public apiUrl = 'http://localhost:8080';
+	public apiUrl = 'https://ejc9ojgoii.execute-api.eu-west-3.amazonaws.com';
 
 	constructor(
 		public http: HttpClient,

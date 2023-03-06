@@ -1,0 +1,62 @@
+<div class='header bg-primary'>
+	<div fxLayout='row wrap' fxLayoutAlign='space-between center'>
+		<h2 class='fw-500 secondary-font'>{{('VOLUNTEER.' + ((volunteer) ? 'UPDATE' : 'ADD')) | translate }}</h2>
+		<app-dialog-header-controls [dialogRef]='dialogRef'></app-dialog-header-controls>
+	</div>
+</div>
+
+<form [formGroup]='form' (ngSubmit)='onSubmit()' autocomplete='off' class='pt-3'>
+	<div mat-dialog-content>
+		<div fxLayout='row wrap'>
+
+			<!-- FirstName column. -->
+			<div fxFlex='100'>
+				<mat-form-field appearance='outline' class='w-100'>
+					<mat-label>{{ "FIELD.LABEL.FIRST_NAME" | translate }}</mat-label>
+					<input matInput placeholder='{{ "FIELD.PLACEHOLDER.FIRST_NAME" | translate }}'
+					       formControlName='firstName' required>
+					<mat-error
+						*ngIf='form.controls.firstName.errors?.required'>{{ "FIELD.REQUIRED.FIRST_NAME" | translate }}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<!-- LastName column. -->
+			<div fxFlex='100'>
+				<mat-form-field appearance='outline' class='w-100'>
+					<mat-label>{{ "FIELD.LABEL.LAST_NAME" | translate }}</mat-label>
+					<input matInput placeholder='{{ "FIELD.PLACEHOLDER.LAST_NAME" | translate }}'
+					       formControlName='lastName' required>
+					<mat-error
+						*ngIf='form.controls.lastName.errors?.required'>{{ "FIELD.REQUIRED.LAST_NAME" | translate }}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<!-- Email column. -->
+			<div fxFlex='100'>
+				<mat-form-field appearance='outline' class='w-100'>
+					<mat-label>{{ "FIELD.LABEL.EMAIL" | translate }}</mat-label>
+					<input matInput placeholder='{{ "FIELD.PLACEHOLDER.EMAIL" | translate }}' formControlName='email'
+					       required>
+					<mat-error *ngIf='form.controls.email.errors?.required'>
+						{{ "FIELD.REQUIRED.EMAIL" | translate }}
+					</mat-error>
+					<mat-error *ngIf="form.controls.email.hasError('invalidEmail')">
+						{{ "FIELD.INVALID.EMAIL" | translate }}
+					</mat-error>
+				</mat-form-field>
+			</div>
+
+		</div>
+	</div>
+	<div mat-dialog-actions>
+		<div fxLayout='row' fxLayoutAlign='space-between center' class='w-100'>
+			<button mat-raised-button color='warn' type='button' mat-dialog-close>
+				{{ 'BTN.CANCEL' | translate }}
+			</button>
+
+			<button mat-raised-button color='accent' type='submit' [disabled]='form.invalid'>
+				{{ 'BTN.SAVE' | translate }}
+			</button>
+		</div>
+	</div>
+</form>

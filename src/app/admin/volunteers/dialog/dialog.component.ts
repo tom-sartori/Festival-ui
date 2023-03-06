@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Game } from '@models/game.model';
-import { GameService } from '@services/game.service';
-import { SnackBarService } from '@services/snack-bar.service';
 import { AppService } from '@services/app.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SnackBarService } from '@services/snack-bar.service';
+import { Volunteer } from '@models/volunteer.model';
 import { isEqual } from 'lodash';
-import { Category } from '@models/shared/category.model';
+import { VolunteerService } from '@services/volunteer.service';
+import { emailValidator } from '@theme/utils/app-validators';
 
 @Component({
 	selector: 'app-dialog',
@@ -15,13 +15,12 @@ import { Category } from '@models/shared/category.model';
 })
 export class DialogComponent implements OnInit {
 	public form!: UntypedFormGroup;
-	public categoryList: Category[] = this.gameService.getCategoryList();
 
 	constructor(
 		public appService: AppService,
-		public gameService: GameService,
 		public dialogRef: MatDialogRef<DialogComponent>,
-		@Inject(MAT_DIALOG_DATA) public game: Game,
+		public volunteerService: VolunteerService,
+		@Inject(MAT_DIALOG_DATA) public volunteer: Volunteer,
 		public fb: UntypedFormBuilder,
 		public snackBarService: SnackBarService
 	) {
@@ -30,26 +29,27 @@ export class DialogComponent implements OnInit {
 	ngOnInit(): void {
 		this.form = this.fb.group({
 			id: '',
-			name: [null, Validators.required],
-			type: [null, Validators.required]
+			firstName: [null, Validators.required],
+			lastName: [null, Validators.required],
+			email: [null, Validators.compose([Validators.required, emailValidator])],
 		});
 
-		if (this.game) {
-			this.form.patchValue(this.game);
+		if (this.volunteer) {
+			this.form.patchValue(this.volunteer);
 		}
 	}
 
 	public onSubmit() {
 		if (this.form.valid) {
 
-			(this.game ?
-			 this.gameService.update(this.form.value) :  // Updating.
-			 this.gameService.createGame(this.form.value)    // Creating.
+			(this.volunteer ?
+			 this.volunteerService.update(this.form.value) :  // Updating.
+			 this.volunteerService.createVolunteer(this.form.value)    // Creating.
 			)
 				.subscribe({
 					next: () => {
 						// Created.
-						this.snackBarService.openSuccess(this.appService.getTranslateValue('SNACKBAR.' + (this.game ? 'UPDATED' : 'CREATED'))!);
+						this.snackBarService.openSuccess(this.appService.getTranslateValue('SNACKBAR.' + (this.volunteer ? 'UPDATED' : 'CREATED'))!);
 						this.dialogRef.close(this.form.value);
 					},
 					error: (error) => {
