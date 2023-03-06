@@ -11,7 +11,9 @@ export class GameService {
 
   private dataPath: string = '/game';
 
-  constructor(private appService: AppService) { }
+  constructor(
+      private appService: AppService
+  ) { }
 
   /**
    * Create a new game and store it in the collection.
@@ -19,15 +21,10 @@ export class GameService {
    * @return An observable that emits the created game.
    */
   public createGame(game: Game): Observable<Game> {
-    const headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    };
-
     return this.appService.http.post<Game>(
         this.appService.apiUrl + this.dataPath,
         game,
-        { headers }
+        { headers: this.appService.headersJsonBearer }
     );
   }
 
@@ -96,7 +93,7 @@ export class GameService {
     return this.appService.http.patch<Game>(
         this.appService.apiUrl + this.dataPath + '/' + game.id,
         game,
-        { headers }
+        { headers: this.appService.headersJsonBearer }
     );
   }
 
@@ -107,7 +104,9 @@ export class GameService {
    @return An observable that emits an empty response when the operation is successful.
    */
   public deleteGame(id: string): Observable<{}> {
-    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' +id);
+    return this.appService.http.delete(this.appService.apiUrl + this.dataPath+ '/' + id,
+        { headers: this.appService.headersJsonBearer }
+    );
   }
 
   public getCategoryList(): Category[] {

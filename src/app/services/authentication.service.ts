@@ -64,4 +64,8 @@ export class AuthenticationService {
 	public isLoggedIn(): boolean {
 		return !!localStorage.getItem('currentUser');
 	}
+
+	public getCurrentToken(): string | null {
+		return localStorage.getItem('currentUser');
+	}
 }

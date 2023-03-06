@@ -6,6 +6,7 @@ import { AppSettings } from 'src/app/app.settings';
 import { environment } from 'src/environments/environment';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '@shared/confirm-dialog/confirm-dialog.component';
 import { AlertDialogComponent } from '@shared/alert-dialog/alert-dialog.component';
+import { AuthenticationService } from '@services/authentication.service';
 
 export class Data {
 	constructor() {
@@ -26,9 +27,21 @@ export class AppService {
 		public http: HttpClient,
 		public dialog: MatDialog,
 		public appSettings: AppSettings,
-		public translateService: TranslateService
+		public translateService: TranslateService,
+		private authenticationService: AuthenticationService
 	) {
 	}
+
+	public headersJson = {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json'
+	};
+
+	public headersJsonBearer = {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json',
+		'Authorization': `Bearer ${this.authenticationService.getCurrentToken()}`
+	};
 
 	public openDialog(component: any, data: any, panelClass: any) {
 		return this.dialog.open(component, {
