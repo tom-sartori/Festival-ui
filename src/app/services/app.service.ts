@@ -21,7 +21,7 @@ export class AppService {
 
 
 	// public apiUrl = 'http://localhost:8080';
-	public apiUrl = 'https://ejc9ojgoii.execute-api.eu-west-3.amazonaws.com';
+	public apiUrl = 'https://mtyrg86625.execute-api.eu-west-3.amazonaws.com';
 
 	constructor(
 		public http: HttpClient,
