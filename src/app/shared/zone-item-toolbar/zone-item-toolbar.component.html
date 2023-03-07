@@ -1,0 +1,16 @@
+<div fxLayout="row wrap" class='all-menu-items-wrapper mt-0'>
+
+    <div fxFlex="100" fxLayoutAlign="center center" fxShow="false" fxShow.gt-sm class="px-2 mb-3">
+        <mat-card fxLayout="row" fxLayoutAlign="space-between center" class="w-100 p-2 filter-row mat-elevation-z1 text-muted">
+
+            <app-search-bar (onSearch)="search($event)"></app-search-bar>
+
+            <div fxShow="false" fxShow.gt-xs>
+                <app-pagination-select (onChangeCountPerPage)="changeCountPerPage($event)"></app-pagination-select>
+                <app-view-type (onChangeViewType)="changeViewType($event)"></app-view-type>
+            </div>
+
+        </mat-card>
+    </div>
+
+</div>

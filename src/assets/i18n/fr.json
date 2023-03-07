@@ -38,6 +38,8 @@
   },
   "ZONE": {
     "NAV": "Zones",
+    "TITLE": "Nos zones",
+    "DESC": "Voici la liste complète des zones de jeux que vous pouvez retrouver à notre festival",
     "ADD": "Ajouter une zone",
     "UPDATE": "Modifier la zone",
     "NO_DATA": "Aucune zone disponible",
@@ -50,6 +52,13 @@
   },
   "VOLUNTEER": {
     "NAV": "Nos bénévoles",
+    "DESC": "Voici la liste complète des bénévoles que vous pouvez retrouver à notre festival",
+    "ADD": "Ajouter un bénévole",
+    "LIST": {
+      "LASTNAME": "Nom",
+      "FIRSTNAME": "Prénom",
+      "EMAIL": "Adresse mail"
+    },
     "ADD": "Ajouter un bénévole",
     "UPDATE": "Modifier le bénévole"
   },
@@ -243,7 +252,8 @@
       "UPDATED": "La catégorie a été mise à jour avec succès. ",
       "DELETED": "La catégorie a été supprimée avec succès. ",
       "ERROR": "Une erreur est survenue lors de la création de la catégorie. "
-    }
+    },
+    "EMAIL": "Email non valide"
   },
   "MESSAGE": {
     "SURE_DELETE": "Êtes-vous sûr de vouloir supprimer cet élément ?"

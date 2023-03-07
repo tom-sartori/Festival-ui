@@ -1,37 +1,38 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
-import {DatePipe} from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
-import {NgProgressModule} from 'ngx-progressbar';
-import {NgProgressHttpModule} from 'ngx-progressbar/http';
-import {AgmCoreModule} from '@agm/core';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
+import { AgmCoreModule } from '@agm/core';
 
-import {environment} from 'src/environments/environment';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {MatPaginatorIntl} from '@angular/material/paginator';
-import {MatPaginatorI18nService} from './theme/utils/mat-paginator-i18n.service';
+import { environment } from 'src/environments/environment';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorI18nService } from './theme/utils/mat-paginator-i18n.service';
 
-import {OverlayContainer} from '@angular/cdk/overlay';
-import {CustomOverlayContainer} from './theme/utils/custom-overlay-container';
-import {AppInterceptor} from './theme/utils/app-interceptor';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { CustomOverlayContainer } from './theme/utils/custom-overlay-container';
+import { AppInterceptor } from './theme/utils/app-interceptor';
 
-import {AppRoutingModule} from './app-routing.module';
-import {SharedModule} from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 
-import {AppComponent} from './app.component';
-import {AppSettings} from './app.settings';
+import { AppComponent } from './app.component';
+import { AppSettings } from './app.settings';
 
-import {PagesComponent} from './pages/pages.component';
-import {NotFoundComponent} from './pages/not-found/not-found.component';
-import {Toolbar1Component} from './theme/components/toolbar1/toolbar1.component';
-import {UserMenuComponent} from './theme/components/user-menu/user-menu.component';
-import {ContactsComponent} from './theme/components/contacts/contacts.component';
-import {HorizontalMenuComponent} from './theme/components/menu/horizontal-menu/horizontal-menu.component';
-import {FooterComponent} from './theme/components/footer/footer.component';
+import { PagesComponent } from './pages/pages.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { Toolbar1Component } from './theme/components/toolbar1/toolbar1.component';
+import { UserMenuComponent } from './theme/components/user-menu/user-menu.component';
+import { ContactsComponent } from './theme/components/contacts/contacts.component';
+import { HorizontalMenuComponent } from './theme/components/menu/horizontal-menu/horizontal-menu.component';
+import { FooterComponent } from './theme/components/footer/footer.component';
+import { VerticalMenuComponent } from '@theme/components/menu/vertical-menu/vertical-menu.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, environment.url +'/assets/i18n/', '.json');
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContactsComponent,
     Toolbar1Component,
     HorizontalMenuComponent,
+    VerticalMenuComponent,
     FooterComponent,
   ],
   imports: [

@@ -19,8 +19,9 @@ export class AppService {
 
 	public url = environment.url + '/assets/data/';
 
-	public apiUrl = 'http://localhost:8080';
-	// public apiUrl = "https://ejc9ojgoii.execute-api.eu-west-3.amazonaws.com";
+
+	// public apiUrl = 'http://localhost:8080';
+	public apiUrl = 'https://ejc9ojgoii.execute-api.eu-west-3.amazonaws.com';
 
 	constructor(
 		public http: HttpClient,

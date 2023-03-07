@@ -9,12 +9,18 @@ import { AuthenticationService } from '@services/authentication.service';
 @Injectable()
 export class MenuService {
 
+
 	constructor(
 		private location: Location,
 		private router: Router,
 		private authenticationService: AuthenticationService
 	) {
 	}
+	public getVerticalMenuItems(): Array<Menu> {
+		return this.authenticationService.isLoggedIn()
+		       ? horizontalMenuItemsPrivate
+		       : horizontalMenuItems;	
+   }
 
 	public getHorizontalMenuItems(): Array<Menu> {
 		return this.authenticationService.isLoggedIn()
@@ -35,6 +41,7 @@ export class MenuService {
 			}
 		}
 	}
+
 
 	public toggleMenuItem(menuId: number) {
 		let menuItem = document.getElementById('menu-item-' + menuId);
@@ -62,6 +69,19 @@ export class MenuService {
 						subMenu.classList.remove('show');
 						menuItem?.classList.remove('expanded');
 					}
+				}
+			}
+		});
+	}
+
+	public closeAllSubMenus() {
+		horizontalMenuItems.forEach(item => {
+			let subMenu = document.getElementById('sub-menu-' + item.id);
+			let menuItem = document.getElementById('menu-item-' + item.id);
+			if (subMenu) {
+				if (subMenu.classList.contains('show')) {
+					subMenu.classList.remove('show');
+					menuItem?.classList.remove('expanded');
 				}
 			}
 		});
