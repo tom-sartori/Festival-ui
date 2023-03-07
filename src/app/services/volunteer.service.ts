@@ -65,7 +65,6 @@ export class VolunteerService {
   }
 
   public update(volunteer: Volunteer): Observable<Volunteer> {
-    console.log(volunteer);
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'

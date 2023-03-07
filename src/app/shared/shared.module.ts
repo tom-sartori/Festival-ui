@@ -63,6 +63,8 @@ import {GameItemComponent} from "./game-item/game-item.component";
 import {CategoryToggleComponent} from './toolbar/category-toggle/category-toggle.component';
 import {PaginationSelectComponent} from './toolbar/pagination-select/pagination-select.component';
 import {LoadingSpinnerComponent} from './loading-spinner/loading-spinner.component';
+import {ZoneItemComponent} from "@shared/zone-item/zone-item.component";
+import {ZoneItemToolbarComponent} from "@shared/zone-item-toolbar/zone-item-toolbar.component";
 import { VolunteerToolbarComponent } from './volunteer-toolbar/volunteer-toolbar.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -90,6 +92,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		SearchBarComponent,
 		ViewTypeComponent,
 		GameItemComponent,
+		ZoneItemComponent,
+		ZoneItemToolbarComponent,
   CategoryToggleComponent,
   PaginationSelectComponent,
   LoadingSpinnerComponent,
@@ -140,6 +144,71 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PipesModule,
     DirectivesModule
   ],
+// <<<<<< master-copy
+	exports: [
+		RouterModule,
+		ReactiveFormsModule,
+		FormsModule,
+		FlexLayoutModule,
+		SwiperModule,
+		TranslateModule,
+		MatAutocompleteModule,
+		MatBadgeModule,
+		MatBottomSheetModule,
+		MatButtonModule,
+		MatButtonToggleModule,
+		MatCardModule,
+		MatCheckboxModule,
+		MatChipsModule,
+		MatDatepickerModule,
+		MatDialogModule,
+		MatExpansionModule,
+		MatGridListModule,
+		MatIconModule,
+		MatInputModule,
+		MatListModule,
+		MatMenuModule,
+		MatNativeDateModule,
+		MatPaginatorModule,
+		MatProgressBarModule,
+		MatProgressSpinnerModule,
+		MatRadioModule,
+		MatRippleModule,
+		MatSelectModule,
+		MatSidenavModule,
+		MatSliderModule,
+		MatSlideToggleModule,
+		MatSnackBarModule,
+		MatSortModule,
+		MatTableModule,
+		MatTabsModule,
+		MatToolbarModule,
+		MatTooltipModule,
+		MatStepperModule,
+		PerfectScrollbarModule,
+		PipesModule,
+		DirectivesModule,
+		HeaderImageComponent,
+		OurServicesComponent,
+		OurAwardsComponent,
+		OurChefsComponent,
+		TimelineComponent,
+		DialogHeaderControlsComponent,
+		ImageUploadComponent,
+		ConfirmDialogComponent,
+		AlertDialogComponent,
+		LangComponent,
+		ProductItemComponent,
+		ProductItemToolbarComponent,
+		ProductItemCarouselComponent,
+		GameItemToolbarComponent,
+		GameItemComponent,
+		ZoneItemComponent,
+		ZoneItemToolbarComponent,
+		CategoryToggleComponent,
+		LoadingSpinnerComponent,
+	],
+// =======
     exports: [
         RouterModule,
         ReactiveFormsModule,
@@ -202,6 +271,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         LoadingSpinnerComponent,
         VolunteerToolbarComponent,
     ],
+// >>>>>> master
   providers:[
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
   ]
