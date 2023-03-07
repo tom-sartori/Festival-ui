@@ -1,22 +1,9 @@
 {
-  "LOGOUT": "Logout",
-  "ACCOUNT": "Account",
-  "MENU": "Menu",
   "NAV": {
     "PAGES": "Pages",
-    "CHEFS": "Chefs",
+    "CHEFS": "Cooks",
     "CHEF": "Chef",
-    "SHOP": "Shop",
-    "SINGLE_MENU": "Single Menu",
-    "CART": "Cart",
-    "CHECKOUT": "Checkout",
-    "FAQS": "Faqs",
-    "PRICING": "Pricing",
-    "LANDING": "Landing",
     "404_PAGE": "404 Page",
-    "OTHERS": "Others",
-    "EXTERNAL_LINK": "External Link",
-    "MENU_ITEM": "Menu Item",
     "ADMIN": "Admin"
   },
   "ADMIN_NAV": {
@@ -26,100 +13,104 @@
     "MENU_ITEMS_LIST": "Menu Items List",
     "MENU_ITEM_DETAIL": "Menu Item Detail",
     "ADD_MENU_ITEM": "Add Menu Item",
-    "SALES": "Sales",
-    "ORDERS": "Orders",
-    "TRANSACTIONS": "Transactions",
-    "USERS": "Users",
-    "RESERVATIONS": "Reservations",
-    "CUSTOMERS": "Customers",
-    "COUPONS": "Coupons",
-    "WITHDRAWAL": "Withdrawal",
-    "ANALYTICS": "Analytics",
-    "REFUND": "Refund",
-    "FOLLOWERS": "Followers",
-    "SUPPORT": "Support",
-    "REVIEWS": "Reviews",
-    "EXTERNAL_LINK": "External Link"
+    "ANALYTICS": "Analytics"
   },
   "HOME": {
     "NAV": "Home",
-    "TITLE": "Le Mas des Rompudes",
-    "DESC": "The vine as a heritage",
-    "ABOUT": {
-      "TITLE": "For five generations",
-      "TEXT1": "Welcome to the Mas des Rompudes website, a small wine estate in the heart of the vineyards for 5 generations! ",
-      "TEXT2": "The vine as a heritage, a reasoned wine-growing. ",
-      "TEXT3": "Come and discover the vineyard in the center of the Saint Bauziloise garrigue. "
+    "TITLE": "Game Festival",
+    "DESC": "An amazing festival"
+  },
+  "GAME": {
+    "NAV": "Our games",
+    "TITLE": "Our games",
+    "DESC": "Here is the complete list of games that you can find at our festival.",
+    "NO_DATA": "No game available",
+    "ADD": "Add a game",
+    "UPDATE": "Update game",
+    "CATEGORY": {
+      "ALL": "All games",
+      "CHILD": "Child",
+      "FAMILY": "Family",
+      "AMBIANCE": "Ambiance",
+      "INITIATED": "Initiated",
+      "EXPERT": "Expert"
     }
   },
-  "RESERVATION": {
-    "TITLE": "Réservation",
-    "DESC": "We provide free, secure and instantly confirmed online reservation.",
-    "FORM_TITLE": "Book a table online. Details will reach in your email.",
-    "FOOTER_1": "You can also call: ",
-    "FOOTER_2": " to make a reservation. "
+  "ZONE": {
+    "NAV": "Zones",
+    "TITLE": "Our zones",
+    "DESC": "Here is the complete list of game zones that you can find at our festival.",
+    "ADD": "Add a zone",
+    "UPDATE": "Update zone",
+    "NO_DATA": "No zone available",
+    "SLOT": {
+      "TITLE": "Slots for this zone",
+      "ADD": "Add a slot",
+      "UPDATE": "Update slot",
+      "NO_DATA": "No slot available"
+    }
   },
-  "ABOUT_US": {
-    "TITLE": "About us",
-    "DESC": "The vineyard as an inheritance",
-    "HISTORY": {
-      "TITLE": "Our history",
-      "TEXT1": "After a first life in motorsports, at 30 Patrice Coste began a successful turn in the region’s wine-growing landscape. Installed in a private cellar since 2014, its Mas des Rompudes estate boasts a range of Hérault IGP wines full of freshness. ",
-      "TEXT2": "It was a family heritage – 12 hectares of vines left vacant on the outskirts of the village of Saint Bauzille de la Sylve in the Hérault region – that put Patrice Coste on the path to vines. Trained in motorsports and graduated from Peugeot Sport School in Clermont-Ferrand after a BTS in auto mechanics, the son and grandson of a winegrower passionate about tasting abandoned engines and racing circuits to begin a quick conversion as a winegrower in his native village in 2013. “My paternal grandfather died leaving behind 6 hectares of vines. My maternal grandfather, who owned another 6 hectares, was retiring without a buyer, he recounts.I brought these two islands together to become a winemaker, first as a co-operator at the winery of Saint-Bauzille de la Sylve, then as an independent winemaker with the desire to always carry out these two activities at the same time. »"
+  "VOLUNTEER": {
+    "NAV": "Our volunteers",
+    "DESC": "Here is the complete list of volunteers that you can find at our festival.",
+    "ADD": "Add a volunteer",
+    "LIST": {
+      "LASTNAME": "Last Name",
+      "FIRSTNAME": "First Name",
+      "EMAIL": "Email"
     },
-    "WINE": {
-      "TITLE": "Our wines",
-      "TEXT1": "A good driver, Patrice Coste knows his roadmap by heart: in 2014 after training in viti-oeno, he isolated 1 ha of vines to create his estate, Le Mas des Rompudes.",
-      "TEXT2": "It is oriented towards a very simple range of wines claimed in the PGI of Hérault around a texture of freshness, with lots of fruit: two reds of which 7000 bottles will be sold in 2014, a rosé “Les Mages” which came in 2015 to complete the range, followed in 2016 by a white wine, “La Capitelle”. Dominant Syrah, Grenache and Alicante (15%). by cuvée), the cuvées “Les Cresses” and “Les Hauts de Tabaussac” red with a very deep violet colour, affirm a certain bias of freedom in this wine-grower. “Initially I kept the old vines of Alicante, valuing them to stand out from the lot, it was a way to stand out and then the vines had been planted by my grandfather. But very quickly in tasting, this dyeing variety has established itself because it brings freshness and a menthol side to the wine”, explains Patrice Coste. In the same spirit on the cellar side, the winemaker has chosen a 100% aging in stainless steel vats to preserve a maximum of freshness to the wines; and a vertical wooden cage press (The old pressoir but in hydraulic version), complemented by a night harvest to avoid oxidation caused by temperature changes."
-    },
-    "OIL": {
-      "TITLE": "PDO, olive oil and truffle oaks",
-      "TEXT": "In 2017, a new stone vault on the Pont du Gard and an underground cellar were built. They will allow the storage of future oak barrels of the estate. Because Patrice Coste aims to expand its range with an AOP wine in the coming years, following the purchase of 3 ha on the heights of Saint-Bauzille in the era of appellation Grès de Montpellier. Also planned for the future: diversification with the production of olive oil on the estate (as soon as the 300 olive trees planted in 2014 on 1.30 ha will return to production), and in the longer term, a truffle oak breeding in the scrubland adjacent to the vineyard."
-    }
+    "UPDATE": "Update volunteer"
   },
-  "PRESS": {
-    "TITLE": "Press",
-    "DESC": "Press review",
-    "ARTICLE": {
-      "TITLE": "Article title",
-      "DATE": "Date of publication",
-      "LINK": "Link to the article"
+  "PRODUCT": {
+    "TITLE": "Our products",
+    "DESC": "Description of our products.",
+    "ADD": "Add a product",
+    "UPDATE": "Update product",
+    "NO_DATA": "No product available",
+    "CATEGORY": {
+      "ADD": "Add a category",
+      "UPDATE": "Update category",
+      "NO_DATA": "You don't have any category.",
+      "ALL": "All categories"
     }
-  },
-  "PARTNER": {
-    "TITLE": "Our partners",
-    "DESC": ""
   },
   "CONTACT": {
     "TITLE": "Contact",
-    "DESC": "The cellar is open every day upon reservation, by email or telephone.",
+    "DESC": "The cellar is open every day by reservation, by email or phone.",
     "CONTACT_US": "Contact us!"
   },
   "LOGIN": {
-    "TITLE": "Login",
-    "DESC": "Don't have an account? Sign up now! ",
+    "NAV": "Log In",
+    "TITLE": "Log In",
+    "DESC": "Don't have an account? Create one now!",
     "KEEP_SIGNED_IN": "Keep me signed in"
   },
   "REGISTER": {
+    "NAV": "Register",
     "TITLE": "Register",
-    "DESC": "Already have an account? Sign in!",
+    "DESC": "Already have an account? Log in!",
     "RECEIVE_NEWSLETTER": "Receive newsletter",
-    "CONDITIONS_MESSAGE": "By clicking the \"Create an Account\" button you agree with our"
+    "CONDITIONS_MESSAGE": "By clicking \"Create an account\", you agree to our"
   },
-  "TERMS_CONDITIONS": {
-    "TITLE": "Terms & Conditions"
+  "LOGOUT": {
+    "NAV": "Log Out"
+  },
+  "ACCOUNT": {
+    "TITLE": "My Account",
+    "PROFILE": {
+      "TITLE": "My Profile"
+    },
+    "PASSWORD_CHANGE": {
+      "TITLE": "Change Password"
+    },
+    "ADDRESS": {
+      "TITLE": "My Addresses"
+    }
   },
   "NOT_FOUND": {
-    "MESSAGE": "Opps, it seems that this page does not exist. "
+    "MESSAGE": "Oops, it seems this page does not exist."
   },
-  "CART": {
-    "TITLE": "Cart",
-    "DESC": "That little basket of joy",
-    "OVERVIEW": "You have no items in your shopping cart. ",
-    "EMPTY": "Your Cart Is Currently Empty!"
-  },
-  "CHECKOUT": {
-    "DELIVERY_ADDRESS": "Delivery address"
+  "ADMIN": {
   },
   "BTN": {
     "ADD": "Add",
@@ -132,104 +123,152 @@
     "NO": "No",
     "OK": "OK",
     "SUBSCRIBE": "Subscribe",
-    "RESERVE": "Make reservation",
-    "SEE_ARTICLE": "See article",
-    "SIGN_IN": "Sign to my account",
-    "RESET_PASSWORD": "Forgot your password?",
-    "CREATE_ACCOUNT": "Create an account",
-    "VIEW_CART": "View cart",
-    "CHECKOUT": "Proceed to checkout",
+    "RESET_PASSWORD": "Forgot Password?",
+    "CREATE_ACCOUNT": "Create an Account",
+    "LOGIN": "Log In",
     "HIDE": "Hide",
-    "CLEAR_CART": "Clear cart list",
-    "REMOVE_ARTICLE": "Remove article",
-    "RETURN_SHOP": "Return to shop",
-    "READ_MORE": "Read more"
-  },
-  "MESSAGE": {
-    "SURE_DELETE": "Are you sure you want to delete?",
-    "FILE_SIZE": "The file size cannot exceed {{param}} kb."
+    "READ_MORE": "Read More",
+    "ADD_ADDRESS": "Add an Address",
+    "DELETE_ADDRESS": "Delete this Address",
+    "CHANGE_PASSWORD": "Change Password",
+    "VIEW": "View",
+    "UPDATE_PROFILE": "Update My Profile",
+    "EDIT": "Edit",
+    "CLOSE": "Close",
+    "UPDATE": "Update"
   },
   "FIELD": {
     "LABEL": {
       "NAME": "Name",
-      "FIRST_NAME": "First name",
-      "MIDDLE_NAME": "Middle name",
-      "LAST_NAME": "Last name",
+      "FIRST_NAME": "First Name",
+      "MIDDLE_NAME": "Middle Name",
+      "LAST_NAME": "Last Name",
       "COMPANY": "Company",
       "COUNTRY": "Country",
       "CITY": "City",
-      "PLACE": "Place",
-      "POSTAL_CODE": "Postal code",
+      "PLACE": "Region",
+      "POSTAL_CODE": "Postal Code",
       "ADDRESS": "Address",
+      "STATE": "State",
       "PHONE": "Phone",
-      "EMAIL": "E-mail",
+      "EMAIL": "Email",
       "MESSAGE": "Message",
       "DATE": "Date",
       "TIME": "Time",
       "GUEST": "Guests",
       "USERNAME": "Username",
       "PASSWORD": "Password",
+      "CURRENT_PASSWORD": "Current Password",
+      "NEW_PASSWORD": "New Password",
       "CONFIRM_PASSWORD": "Confirm Password",
       "IMAGE": "Image",
-      "UNIT_PRICE": "Unit price",
       "QUANTITY": "Quantity",
-      "TOTAL": "Total",
-      "SUB_TOTAL": "Sub total",
-      "DISCOUNT": "Discount",
-      "GRAND_TOTAL": "Grand total"
+      "SEARCH": "Search",
+      "ACTION": "Action",
+      "DESCRIPTION": "Description",
+      "CATEGORY": "Category",
+      "GAME": "Games",
+      "VOLUNTEER": "Volunteers",
+      "START_DATE": "Start Date",
+      "END_DATE": "End Date"
     },
     "PLACEHOLDER": {
-      "NAME": "Your name",
-      "FIRST_NAME": "Your first name",
-      "MIDDLE_NAME": "Your middle name",
-      "LAST_NAME": "Your last name",
-      "COMPANY": "Do you order for a company?",
-      "COUNTRY": "Select a country",
-      "CITY": "Your city",
-      "PLACE": "Your place",
-      "POSTAL_CODE": "Your postal code",
-      "ADDRESS": "Address (street, apartment, suite, unit etc.)",
-      "PHONE": "Your phone number",
-      "EMAIL": "Your email",
-      "MESSAGE": "Your message",
-      "DATE": "Pick a date",
-      "GUEST": "How many of you?",
-      "USERNAME": "Your username",
-      "PASSWORD": "Your password",
-      "CONFIRM_PASSWORD": "Confirm your password"
+      "NAME": "Your Name",
+      "FIRST_NAME": "Your First Name",
+      "LAST_NAME": "Your Last Name",
+      "COMPANY": "Are you ordering for a company?",
+      "COUNTRY": "Enter a Country",
+      "CITY": "Your City",
+      "POSTAL_CODE": "Your Postal Code",
+      "ADDRESS": "Your Postal Address (Number, Street, Apartment...)",
+      "STATE": "Your State",
+      "PHONE": "Your Phone Number",
+      "EMAIL": "Your Email Address",
+      "MESSAGE": "Your Message",
+      "DATE": "Choose a Date",
+      "USERNAME": "Your Username",
+      "PASSWORD": "Your Password",
+      "CURRENT_PASSWORD": "Your Current Password",
+      "NEW_PASSWORD": "Your New Password",
+      "CONFIRM_PASSWORD": "Confirm Your Password",
+      "HOUR": "Enter an hour",
+      "MINUTE": "Enter minutes",
+      "EVENT_CAPACITY": "Enter event capacity",
+      "DESCRIPTION": "Enter a description",
+      "IMAGE": "Choose an image"
     },
     "INVALID": {
-      "FIRST_NAME": "Max number of words exceeded. ",
-      "LAST_NAME": "Max number of words exceeded. ",
-      "MIDDLE_NAME": "Max number of words exceeded. ",
-      "EMAIL": "Invalid email address. ",
-      "USERNAME": "Username isn't long enough, minimum of 6 characters. ",
-      "PASSWORD": "Password isn't long enough, minimum of 6 characters. ",
-      "CONFIRM_PASSWORD": "Passwords do not match. "
+      "FIRST_NAME": "Maximum word limit reached.",
+      "LAST_NAME": "Maximum word limit reached.",
+      "EMAIL": "Invalid email address.",
+      "USERNAME": "Username is not long enough. It must be at least 6 characters long.",
+      "PASSWORD": "Incorrect password. It must be at least 6 characters long.",
+      "CURRENT_PASSWORD": "Incorrect password.",
+      "NEW_PASSWORD": "Incorrect password. It must be at least 6 characters long.",
+      "CONFIRM_PASSWORD": "Passwords do not match."
     },
     "REQUIRED": {
-      "NAME": "Name is required. ",
-      "FIRST_NAME": "First Name is required. ",
-      "LAST_NAME": "Last Name is required. ",
-      "COUNTRY": "Country is required. ",
-      "CITY": "City is required. ",
-      "PLACE": "Place is required. ",
-      "POSTAL_CODE": "Postal Code is required. ",
-      "PHONE": "Phone is required. ",
-      "EMAIL": "Email is required. ",
-      "MESSAGE": "Message is required. ",
-      "DATE": "Date is required. ",
-      "TIME": "Time is required. ",
-      "GUEST": "Guests is required. ",
-      "USERNAME": "Username is required. ",
-      "PASSWORD": "Password is required. ",
-      "CONFIRM_PASSWORD": "Confirm Password is required. "
+      "NAME": "Name is required.",
+      "FIRST_NAME": "First name is required.",
+      "LAST_NAME": "Last name is required.",
+      "COUNTRY": "Country is required.",
+      "CITY": "City is required.",
+      "POSTAL_CODE": "Postal code is required.",
+      "PHONE": "Phone number is required.",
+      "EMAIL": "Email address is required.",
+      "MESSAGE": "Message is required.",
+      "DATE": "Date is required.",
+      "TIME": "Time is required.",
+      "USERNAME": "Username is required.",
+      "PASSWORD": "Password is required.",
+      "CURRENT_PASSWORD": "You must enter your current password.",
+      "NEW_PASSWORD": "You must enter a new password.",
+      "CONFIRM_PASSWORD": "Password confirmation is required.",
+      "MINIMUM_SPEND": "This amount is required.",
+      "HOUR": "Hour is required.",
+      "MINUTE": "Minutes are required.",
+      "EVENT_CAPACITY": "Capacity is required.",
+      "ADDRESS": "Address is required.",
+      "DESCRIPTION": "Description is required.",
+      "CATEGORY": "Category is required.",
+      "IMAGE": "Image is required.",
+      "GAME": "At least one game is required.",
+      "START_DATE": "Start date is required.",
+      "END_DATE": "End date is required."
+    }
+  },
+  "SNACKBAR": {
+    "CREATED": "The item was successfully created.",
+    "UPDATED": "The item was successfully updated.",
+    "DELETED": "The item was successfully deleted.",
+    "ERROR": "An error occurred.",
+    "INVALID_EMAIL_OR_PASSWORD": "Incorrect email or password.",
+    "USER_ALREADY_EXISTS": "This user already exists.",
+    "LOGIN_SUCCESS": "You are logged in.",
+    "REGISTRATION_SUCCESS": "Registration successful.",
+    "CATEGORY": {
+      "CREATED": "The category was successfully created.",
+      "UPDATED": "The category was successfully updated.",
+      "DELETED": "The category was successfully deleted.",
+      "ERROR": "An error occurred while creating the category."
+    },
+    "EMAIL": "Invalid email"
+  },
+  "MESSAGE": {
+    "SURE_DELETE": "Are you sure you want to delete this item?"
+  },
+  "TOOLBAR": {
+    "SEARCH_BAR": {
+      "PLACEHOLDER": "Search..."
+    },
+    "CATEGORY_TOGGLE": {
+      "ALL": "All categories"
     }
   },
   "FOOTER": {
     "NEWSLETTER": {
       "TITLE": "Subscribe to our newsletter",
-      "DESC": "Receive our latest news directly onto your mailbox. "
+      "DESC": "Get our latest news directly in your mailbox."
     }
   },
   "PAGINATION":{
@@ -241,10 +280,10 @@
     "SHOW": "Show"
   },
   "SORTING": {
-    "DEFAULT": "Sort by Default",
-    "POPULAR": "Sort by popularity",
-    "PRICE_LTH": "Sort by price (Low to High)",
-    "PRICE_HTL": "Sort by price (High to Low)"
+    "DEFAULT": "Default sorting",
+    "POPULAR": "Popular sorting",
+    "PRICE_LTH": "Price low to high sorting",
+    "PRICE_HTL": "Price high to low sorting"
   },
   "DATE": {
     "MONTH": {

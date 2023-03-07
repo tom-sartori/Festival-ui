@@ -87,7 +87,7 @@ export class ZoneComponent implements OnInit {
     if (this.zoneList.length === 0) {
       // If there is no data.
       this.paginator.reset();
-      this.message = this.appService.getTranslateValue('GAME.NO_DATA');
+      this.message = this.appService.getTranslateValue('ZONE.NO_DATA');
     }
     else {
       // If there is data.
