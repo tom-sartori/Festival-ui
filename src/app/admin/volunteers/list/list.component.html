@@ -13,19 +13,19 @@
 
             <!-- firstname Column -->
             <ng-container matColumnDef="firstName">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>firstName</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{ "VOLUNTEER.LIST.FIRSTNAME" | translate }}</mat-header-cell>
                 <mat-cell *matCellDef="let volunteer">{{ volunteer.firstName }}</mat-cell>
             </ng-container>
 
             <!-- lastname Column -->
             <ng-container matColumnDef="lastName">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>lastName</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{ "VOLUNTEER.LIST.LASTNAME" | translate }}</mat-header-cell>
                 <mat-cell *matCellDef="let volunteer">{{ volunteer.lastName }}</mat-cell>
             </ng-container>
 
             <!-- email Column -->
             <ng-container matColumnDef="email">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>email</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>{{ "VOLUNTEER.LIST.EMAIL" | translate }}</mat-header-cell>
                 <mat-cell *matCellDef="let volunteer">{{ volunteer.email }}</mat-cell>
             </ng-container>
 
@@ -49,5 +49,5 @@
             <mat-row *matRowDef="let volunteer; columns: displayedColumns;"></mat-row>
         </mat-table>
     </div>
-
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
 </mat-card>

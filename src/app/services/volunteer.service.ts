@@ -36,6 +36,30 @@ export class VolunteerService {
     return this.appService.http.get<Volunteer>(this.appService.apiUrl + this.dataPath+ '/id/' +id);
   }
 
+  /**
+   *
+   * Get volunteers by their lastname.
+   * @param lastname the lastname of the volunteer to retrieve.
+   * @return An observable that emits the retrieved volunteer.
+   */
+  public getByLastName(lastname : string): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/name/' +lastname);
+  }
+
+  /**
+   *
+   * Get volunteers by their firstname.
+   * @param firstname the lastname of the volunteer to retrieve.
+   * @return An observable that emits the retrieved volunteer.
+   */
+  public getByFirstName(firstname : string): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/firstname/' +firstname);
+  }
+
+  public getByFirstAndLastName(name : string): Observable<Volunteer[]> {
+    return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/firstname-lastname/' +name);
+  }
+
   public getByZone(idZone: string): Observable<Volunteer[]> {
     return this.appService.http.get<Volunteer[]>(this.appService.apiUrl + this.dataPath+ '/zone-id/' +idZone);
   }
