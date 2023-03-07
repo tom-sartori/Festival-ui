@@ -23,7 +23,9 @@ export class ZoneComponent implements OnInit {
   public paginator: Paginator = new Paginator([], 1, 12, null, 2, 0, 0);
 
   public viewType: string = 'grid';
-  public viewCol: number = 25;
+  public viewCol: number = 33.3;
+
+  public column: number = 4;
 
 
   constructor(

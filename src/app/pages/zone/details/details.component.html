@@ -1,9 +1,16 @@
 <div class="px-3 py-5">
     <div class="theme-container">
         <mat-card class="px-5 py-4">
-            <div fxLayout='row wrap' fxLayoutAlign='space-between center' class='w-100 p-2'>
-                <h3>{{ zone.name }}</h3>
+            <div fxLayout='row wrap' class='w-100 p-2'>
+                <h2>{{ zone.name }}</h2>
             </div>
+            <div class="game-padding">
+                <mat-chip *ngFor="let currentGame of games" selected disableRipple='true'
+                          color='primary' class='uppercase ws-nowrap'>
+                    {{currentGame.name}}
+                </mat-chip>
+            </div>
+
             <mat-divider></mat-divider>
 
             <div class='table-wrapper'>
@@ -34,22 +41,6 @@
 
                                     {{ (volunteerList | filterById: volunteerRef)?.firstName }}
                                     {{ (volunteerList | filterById: volunteerRef)?.lastName }}
-
-                                </mat-chip>
-                            </mat-chip-list>
-                        </mat-cell>
-                    </ng-container>
-
-                    <!-- VolunteerRefs Column -->
-                    <ng-container matColumnDef='games'>
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>
-                            {{ "FIELD.LABEL.GAME" | translate }}</mat-header-cell>
-                        <mat-cell *matCellDef='let slot'>
-                            <mat-chip-list>
-                                <mat-chip *ngFor="let currentGame of games" selected disableRipple='true'
-                                          color='primary' class='uppercase ws-nowrap'>
-
-                                    {{ currentGame.name}}
 
                                 </mat-chip>
                             </mat-chip-list>

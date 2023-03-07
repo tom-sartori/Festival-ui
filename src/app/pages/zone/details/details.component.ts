@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit {
   dataSource!: MatTableDataSource<Slot>;
   public message: string | null = null;
 
-  displayedColumns: string[] = ['startDate', 'endDate', 'volunteerRefs', 'games'];
+  displayedColumns: string[] = ['startDate', 'endDate', 'volunteerRefs'];
 
   public slots : Slot[] = []
 
@@ -53,7 +53,6 @@ export class DetailsComponent implements OnInit {
 
   public initDataSource() {
     this.dataSource = new MatTableDataSource(this.slots);
-    console.log(this.dataSource)
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.sortingDataAccessor = (data, sortHeaderId) => {
@@ -86,7 +85,6 @@ export class DetailsComponent implements OnInit {
   }
 
   public getGamesByIds(gameIds: string[]) {
-    console.log(this.zone)
     const observables = gameIds.map((id: string) => this.gameService.getById(id));
     forkJoin(observables).subscribe((games: Game[]) => {
       this.games = games;
