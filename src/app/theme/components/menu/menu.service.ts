@@ -3,21 +3,29 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Menu } from './menu.model';
-import { horizontalMenuItems } from './menu';
+import { horizontalMenuItems, horizontalMenuItemsPrivate } from './menu';
+import { AuthenticationService } from '@services/authentication.service';
 
 @Injectable()
 export class MenuService {
 
-	constructor(private location: Location,
-	            private router: Router) {
-	}
 
-	public getVerticalMenuItems(): Array<Menu> {
-		return horizontalMenuItems;
+	constructor(
+		private location: Location,
+		private router: Router,
+		private authenticationService: AuthenticationService
+	) {
 	}
+	public getVerticalMenuItems(): Array<Menu> {
+		return this.authenticationService.isLoggedIn()
+		       ? horizontalMenuItemsPrivate
+		       : horizontalMenuItems;	
+   }
 
 	public getHorizontalMenuItems(): Array<Menu> {
-		return horizontalMenuItems;
+		return this.authenticationService.isLoggedIn()
+		       ? horizontalMenuItemsPrivate
+		       : horizontalMenuItems;
 	}
 
 	public expandActiveSubMenu(menu: Array<Menu>) {
@@ -33,6 +41,7 @@ export class MenuService {
 			}
 		}
 	}
+
 
 	public toggleMenuItem(menuId: number) {
 		let menuItem = document.getElementById('menu-item-' + menuId);

@@ -1,36 +1,32 @@
 <footer>
-    <div class="px-3">
-        <div class="theme-container">
+	<div class='px-3'>
+		<div class='theme-container'>
 
-            <div class="py-5 content border-lighter">
-                <div fxLayout="row wrap" fxLayoutAlign="space-between">
+			<div class='py-5 content border-lighter'>
+				<div fxLayout='row wrap' fxLayoutAlign='space-between'>
 
-                    <div fxFlex="100" fxFlex.gt-sm="50" fxFlex.sm="45">
-                        <p fxLayout="row" fxLayoutAlign="start center" class="mt-2">
-                            <a href='http://maps.google.com/?q={{ contactService.data.address }}' target="_blank">
-                                <mat-icon color="primary">location_on</mat-icon>
-                            </a>
-                            <a href='http://maps.google.com/?q={{ contactService.data.address }}' target="_blank" class="mx-2">
-                                {{ contactService.data.address }}
-                            </a>
-                        </p>
-                        <p fxLayout="row" fxLayoutAlign="start center" class="mt-1">
-                            <mat-icon color="primary">schedule</mat-icon>
-                            <span class="mx-2">Mon - Sun / 9:00AM - 8:00PM</span>
-                        </p>
-                    </div>
+					<div fxFlex='100' fxFlex.gt-sm='100' ngClass.lt-md='pt-5'>
+						<agm-map
+							[latitude]='lat'
+							[longitude]='lng'
+							[zoom]='zoom'
+							[mapTypeControl]='true'
+							[fullscreenControl]='true'
+							[styles]="(settings.theme == 'orange-dark') ? mapStyles : null">
+							<agm-marker
+								[latitude]='lat'
+								[longitude]='lng'
+								[markerDraggable]='false'>
+							</agm-marker>
+						</agm-map>
+					</div>
 
-                    <div fxFlex="100" fxFlex.gt-sm="50" ngClass.lt-md="pt-5">
-<!--                        <h1 class="secondary-font mb-3">Our location</h1>-->
-                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeControl]="false" [styles]="mapStyles">
-                            <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="false"></agm-marker>
-                        </agm-map>
-                    </div>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" class="copyright py-2">
-                <p>Made in Montpellier with ❤</p>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+
+			<div fxLayout='row' fxLayout.xs='column' fxLayoutAlign='space-between center' class='copyright py-2'>
+				<p>Made in Montpellier with ❤</p>
+			</div>
+		</div>
+	</div>
 </footer>

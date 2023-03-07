@@ -16,14 +16,14 @@
 			<ng-container matColumnDef='startDate'>
 				<mat-header-cell *matHeaderCellDef mat-sort-header>
 					{{ "FIELD.LABEL.START_DATE" | translate }}</mat-header-cell>
-				<mat-cell *matCellDef='let slot'> {{ slot.startDate }}</mat-cell>
+				<mat-cell *matCellDef='let slot'> {{ this.datePipe.transform(slot.startDate, 'd/M/yy, h:mm a') }}</mat-cell>
 			</ng-container>
 
 			<!-- EndDate Column -->
 			<ng-container matColumnDef='endDate'>
 				<mat-header-cell *matHeaderCellDef mat-sort-header>
 					{{ "FIELD.LABEL.END_DATE" | translate }}</mat-header-cell>
-				<mat-cell *matCellDef='let slot'> {{ slot.endDate }}</mat-cell>
+				<mat-cell *matCellDef='let slot'> {{ this.datePipe.transform(slot.endDate, 'd/M/yy, h:mm a') }}</mat-cell>
 			</ng-container>
 
 			<!-- VolunteerRefs Column -->

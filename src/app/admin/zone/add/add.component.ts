@@ -13,6 +13,7 @@ import { ZoneService } from '@services/zone.service';
 import { Slot } from '@models/slot.model';
 import { SnackBarService } from '@services/snack-bar.service';
 import { TranslateService } from '@services/translate.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	selector: 'app-add',
@@ -37,7 +38,8 @@ export class AddComponent implements OnInit {
 		public router: Router,
 		private activatedRoute: ActivatedRoute,
 		public snackBarService: SnackBarService,
-		public translateService: TranslateService
+		public translateService: TranslateService,
+		public datePipe: DatePipe
 	) {
 	}
 
@@ -116,6 +118,10 @@ export class AddComponent implements OnInit {
 
 	public onSubmit() {
 		if (this.form.valid) {
+			this.slotList.forEach(slot => {
+				slot.startDate = this.datePipe.transform(slot.startDate, 'yyyy-MM-ddTHH:mm')!;
+				slot.endDate = this.datePipe.transform(slot.endDate, 'yyyy-MM-ddTHH:mm')!;
+			});
 			this.form.value.slots = this.slotList;
 
 			(this.isAdding
