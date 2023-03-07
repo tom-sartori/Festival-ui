@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from '@pages/pages.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { AuthGuard } from '@app/guards/auth.guard';
-import {DetailsComponent} from "@pages/zone/details/details.component";
+import { DetailsComponent } from '@pages/zone/details/details.component';
 
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
             { path: 'volunteer', loadChildren: () => import('./pages/volunteers/volunteers.module').then(m => m.VolunteersModule) },
             { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
             { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
-            { path: 'logout', loadChildren: () => import('./pages/logout/logout.module').then(m => m.LogoutModule), canActivate: [AuthGuard] }
+            { path: 'logout', loadChildren: () => import('./pages/logout/logout.module').then(m => m.LogoutModule), canActivate: [AuthGuard] },
             { path:'zone', loadChildren: () => import('./pages/zone/zone.module').then(m => m.ZoneModule)},
             { path: 'details/:id', component: DetailsComponent }
         ]
