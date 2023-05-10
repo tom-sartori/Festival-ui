@@ -20,8 +20,8 @@ export class AppService {
 	public url = environment.url + '/assets/data/';
 
 
-	// public apiUrl = 'http://localhost:8080';
-	public apiUrl = 'https://cw0rrih8f9.execute-api.eu-west-3.amazonaws.com';
+	public apiUrl = 'http://localhost:8080';
+	// public apiUrl = 'https://cw0rrih8f9.execute-api.eu-west-3.amazonaws.com';
 
 	constructor(
 		public http: HttpClient,
@@ -39,7 +39,7 @@ export class AppService {
 	public headersJsonBearer = {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json',
-		'Authorization': `Bearer ${ this.getCurrentToken() }`
+		// 'Authorization': `Bearer ${ this.getCurrentToken() }`
 	};
 
 	public openDialog(component: any, data: any, panelClass: any) {
